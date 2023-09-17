@@ -1,5 +1,0 @@
-# Schema for the configuration files of the Humainc theme.
-
-humainc.settings:
-  type: theme_settings
-  label: 'Humainc settings'

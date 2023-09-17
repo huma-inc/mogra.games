@@ -1,0 +1,76 @@
+# This theme is marked as @internal. It is intended to evolve and change over
+# minor releases.
+# Change record https://www.drupal.org/node/2673014.
+# As the UI of Drupal improves between minor versions, the mark up and assets
+# in the Mogra theme will change. The Mogra theme is not backwards
+# compatible. If you wish to modify the output or assets of Mogra you can:
+# 1. Copy the whole of Mogra and rename it as your own theme. You will need to
+# manually manage your own updates if you want to stay up to date with Mogra's
+# bug fixes and feature support.
+#
+# 2. Sub-theme Mogra. This is only recommended if you want to make minor
+# tweaks and understand that Mogra could break your modifications as it
+# changes.
+name: Mogra
+type: theme
+base theme: false
+description: 'A flexible, recolorable theme with many regions and a responsive, mobile-first layout.'
+package: Core
+# Define theme core version
+core: 8.x
+core_version_requirement: ^8 || ^9
+version: VERSION
+libraries:
+  - mogra/classy.base
+  - mogra/classy.messages
+  - core/normalize
+  - mogra/global-styling
+
+libraries-extend:
+  core/drupal.dialog:
+    - mogra/classy.dialog
+  core/drupal.dropbutton:
+    - mogra/classy.dropbutton
+  core/drupal.progress:
+    - mogra/classy.progress
+  file/drupal.file:
+    - mogra/classy.file
+  filter/drupal.filter.admin:
+    - mogra/filter
+  filter/drupal.filter:
+    - mogra/filter
+  media/media_embed_ckeditor_theme:
+    - mogra/classy.media_embed_ckeditor_theme
+  media_library/view:
+    - mogra/classy.media_library
+  media_library/widget:
+    - mogra/classy.media_library
+  user/drupal.user:
+    - mogra/user
+
+ckeditor_stylesheets:
+  - css/base/elements.css
+  - css/components/captions.css
+  - css/components/table.css
+  - css/components/text-formatted.css
+  - css/classy/components/media-embed-error.css
+regions:
+  header: Header
+  primary_menu: 'Primary menu'
+  secondary_menu: 'Secondary menu'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  highlighted: Highlighted
+  featured_top: 'Featured top'
+  breadcrumb: Breadcrumb
+  content: Content
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  featured_bottom_first: 'Featured bottom first'
+  featured_bottom_second: 'Featured bottom second'
+  featured_bottom_third: 'Featured bottom third'
+  footer_first: 'Footer first'
+  footer_second: 'Footer second'
+  footer_third: 'Footer third'
+  footer_fourth: 'Footer fourth'
+  footer_fifth: 'Footer fifth'
