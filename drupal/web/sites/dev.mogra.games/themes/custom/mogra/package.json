@@ -38,5 +38,6 @@
   "dependencies": {
     "swiper": "^7.3.0",
     "tocbot": "^4.12.2"
-  }
+  },
+  "packageManager": "yarn@4.1.1"
 }
