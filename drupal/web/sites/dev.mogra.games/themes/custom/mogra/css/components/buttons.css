@@ -15,26 +15,97 @@
   border-left-color: #d2d2d2;
   border-radius: 1em;
   background-color: #fff;
-  background-image: -webkit-linear-gradient(top, #f3f3f3, #e8e8e8);
   background-image: linear-gradient(to bottom, #f3f3f3, #e8e8e8);
   font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
   font-size: 0.929em;
   font-weight: normal;
   line-height: normal;
 }
-.button:hover,
-.button:active,
-.button:focus {
+
+.button:hover, .button:active, .button:focus {
   text-decoration: none;
   color: #5a5a5a;
   background: #dedede;
 }
-.button.is-disabled:hover,
-.button.is-disabled:active,
-.button.is-disabled:focus,
-.button.is-disabled {
+
+.button.is-disabled:hover, .button.is-disabled:active, .button.is-disabled:focus, .button.is-disabled {
   cursor: default;
   color: #717171;
   border-color: #bbb;
   background: #ededed;
 }
+
+.button-sm, .button-md, .button-lg {
+  background: #201813;
+  border-radius: 5px;
+  color: #f5edd6;
+  display: inline-block;
+  letter-spacing: normal;
+  line-height: 1.334;
+  padding: .5em 1.5em;
+
+  text-align: center;
+  transition: all .25s
+}
+
+.button-sm:hover, .button-sm:focus, .button-md:hover, .button-md:focus, .button-lg:hover, .button-lg:focus {
+    background: #3d280f;
+    border-bottom: none;
+    color: #fffcf0;
+  }
+
+.button-sm {
+  line-height: 1.25;
+  font-size: .8em;
+  padding: 5px 1.5em;
+  min-width: 5em;
+}
+
+.button-md {
+  min-width: 6em;
+}
+
+.button-lg {
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-weight: bold;
+  display: block;
+  width: 80%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+.button-container {
+  letter-spacing: -.5em;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center
+}
+
+.button-container .button-sm + .button-sm, .button-container .button-md + .button-md {
+    margin-left: 10px;
+  }
+
+.share {
+  clear: both;
+  text-align: center;
+  margin-bottom: 1em
+}
+
+.share * {
+    vertical-align: top !important;
+  }
+
+.share .addtoany_list > a {
+    padding: 0 5px;
+  }
+
+.share .addtoany_list.a2a_kit_size_32 a > span {
+    border-radius: 50%;
+  }
+
+.share a:hover, .share a:active, .share a:focus {
+     border-bottom: none;
+  }
+

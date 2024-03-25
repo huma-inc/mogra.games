@@ -73,8 +73,8 @@
         </aside>
       </div>
     {% endif %}
-    <div id="main-wrapper" class="layout-main-wrapper layout-container clearfix">
-      <div id="main" class="layout-main clearfix">
+    <div id="main-wrapper" class="layout-main-wrapper clearfix">
+      <div id="main" class="layout-main layout-container clearfix">
         {{ page.breadcrumb }}
         <main id="content" class="column main-content" role="main">
           <section class="section">
@@ -97,6 +97,13 @@
           </div>
         {% endif %}
       </div>
+      {% if page.billboard %}
+        <div id="billboard" class="">
+          <div class="layout-container clearfix" role="banner">
+            {{ page.billboard }}
+          </div>
+        </div>
+      {% endif %}
     </div>
     {% if page.featured_bottom_first or page.featured_bottom_second or page.featured_bottom_third %}
       <div class="featured-bottom">

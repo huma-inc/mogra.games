@@ -1,0 +1,51 @@
+/**
+ * @file
+ * Font styles for Mogra's.
+ */
+
+
+@font-face {
+  font-family: 'mogra';
+  src:  url(../fonts/mogra.eot);
+  src:  url(../fonts/mogra.eot#iefix) format('embedded-opentype'),
+  url(../fonts/mogra.ttf) format('truetype'),
+  url(../fonts/mogra.woff) format('woff'),
+  url(../fonts/mogra.svg#mogra) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+.body_paragraphs ul li::before {
+   /* use !important to prevent issues with browser extensions that change fonts */
+   font-family: 'mogra' !important;
+   speak: none;
+   font-style: normal;
+   font-weight: normal;
+   font-feature-settings: normal;
+   font-variant: normal;
+   text-transform: none;
+
+   /* Better Font Rendering =========== */
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+
+
+.node__content p a[target="_blank"]::after, .node__content .button-sm[target="_blank"]::after, .node__content .button-md[target="_blank"]::after, .node__content .button-lg[target="_blank"]::after {
+  content: "";
+  display: inline-block;
+  width: 1.125em;
+  height: 1em;
+  margin-left: .25em;
+  vertical-align: -.0625em;
+  background-color: #3370cc;
+  -webkit-mask-image: url(../fonts/external-link.svg);
+          mask-image: url(../fonts/external-link.svg);
+}
+
+
+.node__content .button-sm[target="_blank"]::after, .node__content .button-md[target="_blank"]::after, .node__content .button-lg[target="_blank"]::after {
+  background-color: #f5edd6 !important;
+}
+

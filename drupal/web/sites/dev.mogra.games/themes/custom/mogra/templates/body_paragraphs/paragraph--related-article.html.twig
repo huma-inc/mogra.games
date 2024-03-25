@@ -1,0 +1,27 @@
+{% set classes = ['related-article'] %}
+
+{% if body_paragraphs.related_article %}
+  {% set item = body_paragraphs.related_article %}
+  <article{{ attributes.addClass(classes, 'align-center') }}>
+    <a href="{{ item.alias }}">
+      <div class="related-article__container">
+        <div class="related-article__content">
+          <p class="title">{{ item.title }}</p>
+          {% if item.description %}
+            <p class="description">{{ item.description }}</p>
+          {% endif %}
+          <div class="related-article__meta">
+            <span class="game-title">{{ item.game_title }}</span>
+            <span class="category">{{ item.category_article }}</span>
+          </div>
+        </div>
+        <div class="related-article__thumbnail">
+          <div class="bgimg" style="background-image: url('{{ item.image_url }}')"></div>
+        </div>
+      </div>
+    </a>
+  </article>
+{% endif %}
+
+
+

@@ -1,0 +1,42 @@
+
+      [data-history-node-id="4"] .node__content h2::before, [data-history-node-id="6"] .node__content h2::before {
+        content: none;
+      }
+[data-history-node-id="4"] .node__content .text-formatted ul, [data-history-node-id="4"] .node__content .text-formatted ol, [data-history-node-id="6"] .node__content .text-formatted ul, [data-history-node-id="6"] .node__content .text-formatted ol {
+      line-height: 1.334;
+      list-style-type: none;
+      margin: 20px 0;
+      padding: 0 0 0 2em
+    }
+[data-history-node-id="4"] .node__content .text-formatted ul li::before, [data-history-node-id="4"] .node__content .text-formatted ol li::before, [data-history-node-id="6"] .node__content .text-formatted ul li::before, [data-history-node-id="6"] .node__content .text-formatted ol li::before {
+          float: left;
+          line-height: 1.334;
+          margin: 0 .5em 0 -2em;
+          width: 1.5em;
+          text-align: right;
+        }
+[data-history-node-id="4"] .node__content .text-formatted ul li + li, [data-history-node-id="4"] .node__content .text-formatted ol li + li, [data-history-node-id="6"] .node__content .text-formatted ul li + li, [data-history-node-id="6"] .node__content .text-formatted ol li + li {
+          margin-top: 5px;
+        }
+[data-history-node-id="4"] .node__content .text-formatted ul ul, [data-history-node-id="4"] .node__content .text-formatted ul ol, [data-history-node-id="4"] .node__content .text-formatted ol ul, [data-history-node-id="4"] .node__content .text-formatted ol ol, [data-history-node-id="6"] .node__content .text-formatted ul ul, [data-history-node-id="6"] .node__content .text-formatted ul ol, [data-history-node-id="6"] .node__content .text-formatted ol ul, [data-history-node-id="6"] .node__content .text-formatted ol ol {
+        margin: 5px 0 0 0;
+      }
+[data-history-node-id="4"] .node__content .text-formatted ul > li::before, [data-history-node-id="6"] .node__content .text-formatted ul > li::before {
+        content: "\e900";
+      }
+[data-history-node-id="4"] .node__content .text-formatted ul ul > li::before, [data-history-node-id="6"] .node__content .text-formatted ul ul > li::before {
+        content: "\e901";
+      }
+[data-history-node-id="4"] .node__content .text-formatted ol, [data-history-node-id="6"] .node__content .text-formatted ol {
+      counter-reset: item
+    }
+[data-history-node-id="4"] .node__content .text-formatted ol > li::before, [data-history-node-id="6"] .node__content .text-formatted ol > li::before {
+        color: #181818;
+        counter-increment: item;
+        content: '.'counters(item, ".");
+        direction: rtl;
+        font-family: "M PLUS 1p", sans-serif;
+        font-style: oblique;
+        white-space: nowrap;
+      }
+

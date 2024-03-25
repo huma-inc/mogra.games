@@ -1,0 +1,289 @@
+/**
+ * @file
+ * Styles for Mogra's Swiper.
+ */
+
+#block-views-block-pickup-block {
+  opacity: 0;
+  transition: opacity 250ms ease-in-out
+}
+
+#block-views-block-pickup-block.initialized {
+    opacity: 1;
+  }
+
+#block-views-block-pickup-block h2 {
+    font-size: 1.43em;
+    font-family: "M PLUS 1p", sans-serif;
+    letter-spacing: -.05em;
+    line-height: 30px;
+    margin: 0 0 7px;
+    padding-left: 5px;
+    text-shadow:
+      black 2px 0px,  black -2px 0px,
+      black 0px -2px, black 0px 2px,
+      black 2px 2px , black -2px 2px,
+      black 2px -2px, black -2px -2px,
+      black 1px 2px,  black -1px 2px,
+      black 1px -2px, black -1px -2px,
+      black 2px 1px,  black -2px 1px,
+      black 2px -1px, black -2px -1px,
+      black 4px 2px,  black 0px 2px,
+      black 2px 0px, black 2px 4px,
+      black 4px 4px , black 0px 4px,
+      black 4px 0px, black 0px 0px,
+      black 3px 4px,  black 1px 4px,
+      black 3px 0px, black 1px 0px,
+      black 4px 3px,  black 0px 3px,
+      black 4px 1px, black 0px 1px
+  }
+
+#block-views-block-pickup-block h2 span:nth-child(4n+1) { color: #ff3a24; }
+
+#block-views-block-pickup-block h2 span:nth-child(4n+2) { color: #23c739; }
+
+#block-views-block-pickup-block h2 span:nth-child(4n+3) { color: #3392ff; }
+
+#block-views-block-pickup-block h2 span:nth-child(4n) { color: #ffcc00; }
+
+#block-views-block-pickup-block h2 span:nth-child(6) { letter-spacing: -.1em; }
+
+#block-views-block-pickup-block h2 span:nth-child(7) {
+      color: #ff80c4;
+      display: inline-block;
+      transform: rotate(20deg);
+    }
+
+#block-views-block-pickup-block .content {
+    margin-top: 0;
+  }
+
+@media all and (min-width: 560px) {
+    #block-views-block-pickup-block h2 {
+      padding-left: 0;
+    }
+  }
+
+@media all and (min-width: 851px) {
+    #block-views-block-pickup-block h2 {
+      font-size: 1.286em;
+      line-height: 25px;
+    }
+  }
+
+.view-pickup {
+  margin-bottom: 50px;
+  position: relative
+}
+
+.view-pickup .swiper {
+    box-sizing: border-box;
+    width: calc(100% + 10px);
+    height: 110px;
+    margin-left: -5px;
+    margin-right: -5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    overflow: hidden
+  }
+
+.view-pickup .swiper .swiper-wrapper .swiper-slide {
+        width: 335px;
+        height: 100%
+      }
+
+.view-pickup .swiper .swiper-wrapper .swiper-slide .pickup:hover .pickup__eyecatch .media--image {
+                opacity: .7;
+                transform: scale(1.1);
+              }
+
+.view-pickup .swiper .swiper-wrapper .swiper-slide .pickup {
+          background-color: #fffbf0;
+          border: solid 2px #392a13;
+          border-radius: 10px;
+          box-sizing: border-box;
+          box-shadow: 0 0 0 1px #8c816f inset;
+          color: inherit;
+          display: flex;
+          height: 100%;
+          padding: 3px;
+          overflow: hidden
+        }
+
+.view-pickup .swiper .swiper-wrapper .swiper-slide .pickup .pickup__eyecatch {
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            flex-basis: 150px;
+            overflow: hidden
+          }
+
+.view-pickup .swiper .swiper-wrapper .swiper-slide .pickup .pickup__eyecatch .media--image {
+              transition: transform 250ms ease-in-out;
+            }
+
+.view-pickup .swiper .swiper-wrapper .swiper-slide .pickup .pickup__eyecatch .media--ratio--32 {
+              padding-bottom: 66.66% !important;
+            }
+
+.view-pickup .swiper .swiper-wrapper .swiper-slide .pickup .pickup__content {
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            flex: 1 1;
+            padding: 7px 10px;
+            overflow: hidden
+          }
+
+.view-pickup .swiper .swiper-wrapper .swiper-slide .pickup .pickup__content .pickup__title {
+              display: -webkit-box;
+              -webkit-line-clamp: 3;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+              font-size: 1em;
+              font-weight: bold;
+              line-height: 1.43;
+              margin: 0 0 5px;
+            }
+
+.view-pickup .swiper .swiper-wrapper .swiper-slide .pickup .pickup__content .pickup__desc {
+              display: none;
+            }
+
+.view-pickup .swiper .swiper-wrapper .swiper-slide .pickup .pickup__content .pickup__meta {
+              font-size: .667em;
+              margin-top: 5px;
+            }
+
+.view-pickup .swiper-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    bottom: -40px
+  }
+
+.view-pickup .swiper-navigation .swiper-pagination-bullets.swiper-pagination-horizontal {
+      display: inline-flex;
+      align-items: center;
+      width: auto;
+      margin-left: 15px;
+      margin-right: 15px;
+      position: static
+    }
+
+.view-pickup .swiper-navigation .swiper-pagination-bullets.swiper-pagination-horizontal .swiper-pagination-bullet {
+        opacity: 1;
+        background-color: #201813;
+      }
+
+.view-pickup .swiper-navigation .swiper-pagination-bullets.swiper-pagination-horizontal .swiper-pagination-bullet-active {
+        border: solid 2px #201813;
+        background-color: #f5edd6;
+      }
+
+.view-pickup .swiper-navigation .swiper-button-next, .view-pickup .swiper-navigation .swiper-button-prev {
+      background-color: #201813;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      margin: 0;
+      align-items: baseline;
+      position: static
+    }
+
+.view-pickup .swiper-navigation .swiper-button-next::after, .view-pickup .swiper-navigation .swiper-button-prev::after {
+        color: #f5edd6;
+        font-size: 25px;
+        font-family: "M PLUS 1p", sans-serif;
+      }
+
+.view-pickup .swiper-navigation .swiper-button-next.swiper-button-disabled, .view-pickup .swiper-navigation .swiper-button-prev.swiper-button-disabled {
+        opacity: 1
+      }
+
+.view-pickup .swiper-navigation .swiper-button-next.swiper-button-disabled::after, .view-pickup .swiper-navigation .swiper-button-prev.swiper-button-disabled::after {
+          color: #4d3d33;
+        }
+
+.view-pickup .swiper-navigation .swiper-button-next::after {
+        content: '\0203A';
+      }
+
+.view-pickup .swiper-navigation .swiper-button-prev::after {
+        content: '\02039';
+      }
+
+@media all and (min-width: 560px) {
+    .view-pickup .swiper {
+      margin-left: -20px;
+      margin-right: -20px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+}
+
+@media all and (min-width: 560px) and (max-width: 850px), all and (min-width: 1100px) {
+    .view-pickup .swiper {
+      width: calc(100% + 40px);
+      height: 160px
+    }
+        .view-pickup .swiper .swiper-wrapper .swiper-slide {
+          width: 512px
+        }
+          .view-pickup .swiper .swiper-wrapper .swiper-slide .pickup {
+            border-radius: 16px
+          }
+            .view-pickup .swiper .swiper-wrapper .swiper-slide .pickup .pickup__eyecatch {
+              border-top-left-radius: 11px;
+              border-bottom-left-radius: 11px;
+              flex-basis: 225px;
+            }
+            .view-pickup .swiper .swiper-wrapper .swiper-slide .pickup .pickup__content {
+              padding: 10px 15px
+            }
+              .view-pickup .swiper .swiper-wrapper .swiper-slide .pickup .pickup__content .pickup__title {
+                -webkit-line-clamp: 2;
+              }
+              .view-pickup .swiper .swiper-wrapper .swiper-slide .pickup .pickup__content .pickup__desc {
+                color: #61646b;
+                font-size: .86em;
+                text-align: justify;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+              }
+}
+
+@media all and (min-width: 851px) {
+    .view-pickup .swiper {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      -webkit-mask-image: linear-gradient(to right, transparent, black 20px, black calc(100% - 20px), transparent);
+              mask-image: linear-gradient(to right, transparent, black 20px, black calc(100% - 20px), transparent);
+      -webkit-mask-size: calc(100% + 0px) 100%;
+              mask-size: calc(100% + 0px) 100%;
+      -webkit-mask-position: center;
+              mask-position: center;
+      -webkit-mask-repeat: no-repeat;
+              mask-repeat: no-repeat;
+      transition: -webkit-mask-size 250ms ease-in-out, -webkit-mask-position 250ms ease-in-out;
+      transition: mask-size 250ms ease-in-out, mask-position 250ms ease-in-out;
+      transition: mask-size 250ms ease-in-out, mask-position 250ms ease-in-out, -webkit-mask-size 250ms ease-in-out, -webkit-mask-position 250ms ease-in-out
+    }
+      .view-pickup .swiper.is-beginning {
+        -webkit-mask-size: calc(100% + 20px) 100%;
+                mask-size: calc(100% + 20px) 100%;
+        -webkit-mask-position: -20px center;
+                mask-position: -20px center;
+      }
+      .view-pickup .swiper.is-end {
+        -webkit-mask-size: calc(100% + 20px) 100%;
+                mask-size: calc(100% + 20px) 100%;
+        -webkit-mask-position: 0px center;
+                mask-position: 0px center;
+      }
+}
+

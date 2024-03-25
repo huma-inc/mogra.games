@@ -7,6 +7,8 @@
   display: block;
   text-align: right; /* LTR */
 }
+
 [dir="rtl"] .more-link {
   text-align: left;
 }
+

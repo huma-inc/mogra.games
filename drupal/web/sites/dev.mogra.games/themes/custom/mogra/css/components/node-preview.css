@@ -4,7 +4,6 @@
   width: 100%;
   padding: 5px 10px;
   background: #d1e8f5;
-  background-image: -webkit-linear-gradient(top, #d1e8f5, #d3e8f4);
   background-image: linear-gradient(to bottom, #d1e8f5, #d3e8f4);
   box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.3333);
   font-family: Arial, sans-serif;
@@ -16,8 +15,7 @@
   color: #fff;
   border: 1px solid #0048c8;
   border-radius: 0.4em;
-  background: url(../../../../../misc/icons/000000/chevron-left.svg) left no-repeat, -webkit-linear-gradient(top, #419ff1, #1076d5);
-  background: url(../../../../../misc/icons/000000/chevron-left.svg) left no-repeat, linear-gradient(to bottom, #419ff1, #1076d5); /* LTR */
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PHBhdGggZmlsbD0iIzAwMDAwMCIgZD0iTTcuOTUxIDcuNjQ1Yy0uMTkzLjE5Ni0uMTkzLjUxNiAwIC43MWwzLjI1OCAzLjI5Yy4xOTMuMTkzLjE5MS41MTktLjAwMi43MDlsLTEuMzcxIDEuMzcxYy0uMTkzLjE5Mi0uNTEyLjE5MS0uNzA3IDBsLTUuMzM1LTUuMzcxYy0uMTk0LS4xOTQtLjE5NC0uNTE0IDAtLjcwOGw1LjMzNS01LjM2OWMuMTk1LS4xOTUuNTE0LS4xOTUuNzA3LS4wMDFsMS4zNzEgMS4zNzFjLjE5My4xOTQuMTk1LjUxMy4wMDIuNzA5bC0zLjI1OCAzLjI4OXoiLz48L3N2Zz4K) left no-repeat, linear-gradient(to bottom, #419ff1, #1076d5); /* LTR */
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
   font-size: 0.9em;
@@ -27,31 +25,24 @@
   float: right;
   margin: 5px 0 5px 10px;
   padding: 4px 0.6em 4px 1em;
-  background: url(../../../../../misc/icons/000000/chevron-right.svg) right no-repeat, -webkit-linear-gradient(top, #419ff1, #1076d5);
-  background: url(../../../../../misc/icons/000000/chevron-right.svg) right no-repeat, linear-gradient(to bottom, #419ff1, #1076d5);
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PHBhdGggZmlsbD0iIzAwMDAwMCIgZD0iTTguMDUzIDguMzU1Yy4xOTMtLjE5NS4xOTMtLjUxNyAwLS43MTFsLTMuMjYtMy4yODljLS4xOTMtLjE5NS0uMTkyLS41MTQuMDAyLS43MDlsMS4zNzEtMS4zNzFjLjE5NC0uMTk0LjUxMi0uMTkzLjcwNi4wMDFsNS4zMzUgNS4zNjljLjE5NS4xOTUuMTk1LjUxNSAwIC43MDhsLTUuMzM1IDUuMzdjLS4xOTQuMTkyLS41MTIuMTkzLS43MDYuMDAybC0xLjM3MS0xLjM3MWMtLjE5NC0uMTk1LS4xOTUtLjUxNC0uMDAyLS43MDlsMy4yNi0zLjI5eiIvPjwvc3ZnPgoK) right no-repeat, linear-gradient(to bottom, #419ff1, #1076d5);
 }
-.node-preview-backlink:focus,
-.node-preview-backlink:hover {
+.node-preview-backlink:focus, .node-preview-backlink:hover {
   text-decoration: none;
   color: #fff;
   border: 1px solid #0048c8;
-  background: url(../../../../../misc/icons/000000/chevron-left.svg) left no-repeat, -webkit-linear-gradient(top, #59abf3, #2a90ef);
-  background: url(../../../../../misc/icons/000000/chevron-left.svg) left no-repeat, linear-gradient(to bottom, #59abf3, #2a90ef); /* LTR */
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PHBhdGggZmlsbD0iIzAwMDAwMCIgZD0iTTcuOTUxIDcuNjQ1Yy0uMTkzLjE5Ni0uMTkzLjUxNiAwIC43MWwzLjI1OCAzLjI5Yy4xOTMuMTkzLjE5MS41MTktLjAwMi43MDlsLTEuMzcxIDEuMzcxYy0uMTkzLjE5Mi0uNTEyLjE5MS0uNzA3IDBsLTUuMzM1LTUuMzcxYy0uMTk0LS4xOTQtLjE5NC0uNTE0IDAtLjcwOGw1LjMzNS01LjM2OWMuMTk1LS4xOTUuNTE0LS4xOTUuNzA3LS4wMDFsMS4zNzEgMS4zNzFjLjE5My4xOTQuMTk1LjUxMy4wMDIuNzA5bC0zLjI1OCAzLjI4OXoiLz48L3N2Zz4K) left no-repeat, linear-gradient(to bottom, #59abf3, #2a90ef); /* LTR */
 }
-[dir="rtl"] .node-preview-backlink:focus,
-[dir="rtl"] .node-preview-backlink:hover {
-  background: url(../../../../../misc/icons/000000/chevron-right.svg) right no-repeat, -webkit-linear-gradient(top, #59abf3, #2a90ef);
-  background: url(../../../../../misc/icons/000000/chevron-right.svg) right no-repeat, linear-gradient(to bottom, #59abf3, #2a90ef);
+[dir="rtl"] .node-preview-backlink:focus, [dir="rtl"] .node-preview-backlink:hover {
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PHBhdGggZmlsbD0iIzAwMDAwMCIgZD0iTTguMDUzIDguMzU1Yy4xOTMtLjE5NS4xOTMtLjUxNyAwLS43MTFsLTMuMjYtMy4yODljLS4xOTMtLjE5NS0uMTkyLS41MTQuMDAyLS43MDlsMS4zNzEtMS4zNzFjLjE5NC0uMTk0LjUxMi0uMTkzLjcwNi4wMDFsNS4zMzUgNS4zNjljLjE5NS4xOTUuMTk1LjUxNSAwIC43MDhsLTUuMzM1IDUuMzdjLS4xOTQuMTkyLS41MTIuMTkzLS43MDYuMDAybC0xLjM3MS0xLjM3MWMtLjE5NC0uMTk1LS4xOTUtLjUxNC0uMDAyLS43MDlsMy4yNi0zLjI5eiIvPjwvc3ZnPgoK) right no-repeat, linear-gradient(to bottom, #59abf3, #2a90ef);
 }
 .node-preview-backlink:active {
   border: 1px solid #0048c8;
-  background: url(../../../../../misc/icons/000000/chevron-left.svg) left no-repeat, -webkit-linear-gradient(top, #0e69be, #2a93ef);
-  background: url(../../../../../misc/icons/000000/chevron-left.svg) left no-repeat, linear-gradient(to bottom, #0e69be, #2a93ef); /* LTR */
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PHBhdGggZmlsbD0iIzAwMDAwMCIgZD0iTTcuOTUxIDcuNjQ1Yy0uMTkzLjE5Ni0uMTkzLjUxNiAwIC43MWwzLjI1OCAzLjI5Yy4xOTMuMTkzLjE5MS41MTktLjAwMi43MDlsLTEuMzcxIDEuMzcxYy0uMTkzLjE5Mi0uNTEyLjE5MS0uNzA3IDBsLTUuMzM1LTUuMzcxYy0uMTk0LS4xOTQtLjE5NC0uNTE0IDAtLjcwOGw1LjMzNS01LjM2OWMuMTk1LS4xOTUuNTE0LS4xOTUuNzA3LS4wMDFsMS4zNzEgMS4zNzFjLjE5My4xOTQuMTk1LjUxMy4wMDIuNzA5bC0zLjI1OCAzLjI4OXoiLz48L3N2Zz4K) left no-repeat, linear-gradient(to bottom, #0e69be, #2a93ef); /* LTR */
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 [dir="rtl"] .node-preview-backlink:active {
-  background: url(../../../../../misc/icons/000000/chevron-right.svg) right no-repeat, -webkit-linear-gradient(top, #0e69be, #2a93ef);
-  background: url(../../../../../misc/icons/000000/chevron-right.svg) right no-repeat, linear-gradient(to bottom, #0e69be, #2a93ef);
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PHBhdGggZmlsbD0iIzAwMDAwMCIgZD0iTTguMDUzIDguMzU1Yy4xOTMtLjE5NS4xOTMtLjUxNyAwLS43MTFsLTMuMjYtMy4yODljLS4xOTMtLjE5NS0uMTkyLS41MTQuMDAyLS43MDlsMS4zNzEtMS4zNzFjLjE5NC0uMTk0LjUxMi0uMTkzLjcwNi4wMDFsNS4zMzUgNS4zNjljLjE5NS4xOTUuMTk1LjUxNSAwIC43MDhsLTUuMzM1IDUuMzdjLS4xOTQuMTkyLS41MTIuMTkzLS43MDYuMDAybC0xLjM3MS0xLjM3MWMtLjE5NC0uMTk1LS4xOTUtLjUxNC0uMDAyLS43MDlsMy4yNi0zLjI5eiIvPjwvc3ZnPgoK) right no-repeat, linear-gradient(to bottom, #0e69be, #2a93ef);
 }
 .node-preview-backlink::before {
   display: inline-block;
@@ -70,3 +61,4 @@
 [dir="rtl"] .node-preview-container .form-item-view-mode {
   margin-right: 0;
 }
+

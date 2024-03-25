@@ -3,7 +3,12 @@ global-styling:
   css:
     base:
       css/base/elements.css: {}
+      '//fonts.googleapis.com/css2?family=M+PLUS+1p:wght@800&display=swap&text=ピックアプ！ジャンルゲーム攻略レビュトス事前登録新着記事注目ツニュ攻略リ一覧カテゴサイ情報特集・企画もくじ0123456789‹›': {
+        type: external
+      }
     component:
+      css/components/ad-block.css: {}
+      css/components/addtoany.css: {}
       css/components/block.css: {}
       css/components/book.css: {}
       css/components/breadcrumb.css: {}
@@ -23,6 +28,7 @@ global-styling:
       css/components/help.css: {}
       css/components/highlighted.css: {}
       css/components/item-list.css: {}
+      css/components/individual-page.css: {}
       css/components/list-group.css: {}
       css/components/list.css: {}
       css/components/main-content.css: {}
@@ -46,6 +52,7 @@ global-styling:
       css/components/tablesort-indicator.css: {}
       css/components/tabs.css: {}
       css/components/text-formatted.css: {}
+      css/components/toc.css: {}
       css/components/toolbar.css: {}
       css/components/featured-bottom.css: {}
       css/components/password-suggestions.css: {}
@@ -60,6 +67,7 @@ global-styling:
       css/layout.css: {}
     theme:
       css/colors.css: {}
+      css/fonts.css: {}
       css/print.css: { media: print }
 
 messages:
@@ -86,6 +94,23 @@ maintenance_page:
   dependencies:
     - system/maintenance
     - mogra/global-styling
+
+tocbot:
+  version: VERSION
+  js:
+    js/tocbot.js: {}
+    js/vendor.js: {}
+
+swiper:
+  version: VERSION
+  css:
+    component:
+      css/components/swiper.css: {}
+  js:
+    js/swiper.js: {}
+    js/vendor.js: {}
+  dependencies:
+    - blazy/load
 
 classy.base:
   version: VERSION

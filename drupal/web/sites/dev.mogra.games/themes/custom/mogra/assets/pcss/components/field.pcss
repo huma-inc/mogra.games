@@ -47,6 +47,10 @@
   .node .field--type-image {
     float: left; /* LTR */
     margin: 0 1em 0 0; /* LTR */
+    &.field--name-field-eyecatch {
+      float: none;
+      margin: 0;
+    }
   }
   [dir="rtl"] .node .field--type-image {
     float: right;
@@ -96,4 +100,84 @@
 [dir="rtl"] .field--name-field-tags ul.links li {
   float: right;
   padding: 0 0 0 1em;
+}
+
+.field--name-field-screenshot-viewer {
+  & .field__items {
+    display: flex;
+    float: none;
+    width: auto;
+    min-width: 100%;
+    margin-bottom: 0;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+    & > .field__item {
+      box-sizing: border-box;
+      width: calc(50% - 20px);
+      flex-shrink: 0;
+      flex-basis: calc(50% - 20px);
+      &:not(:first-child) {
+        margin-left: 10px;
+      }
+      & .field--type-image {
+        float: none;
+        margin: 0;
+      }
+      & picture {
+        display: block;
+        height: auto;
+      }
+      & img {
+        width: 100%;
+        height: auto;
+        vertical-align: top;
+        margin-bottom: 0;
+        mask: url("../../images/masks/iphone-5-8-mask.svg") center/cover no-repeat;
+      }
+      @media all and (min-width: 560px) and (max-width: 850px), all and (min-width: 1000px) {
+        width: calc(33.333% - 20px);
+        flex-basis: calc(33.333% - 20px);
+      }
+    }
+    @media all and (max-width: 850px) {
+      margin-left: -18px;
+      margin-right: -18px;
+      padding-left: 18px;
+      padding-right: 18px;
+      &::after {
+        content: "";
+        display: block;
+        flex: 0 0 18px;
+        align-self: stretch;
+      }
+    }
+    &.field--name-field-screenshot-landscape {
+      & > .field__item {
+        width: calc(100% - 30px);
+        flex-basis: calc(100% - 30px);
+        & img {
+          mask: url("../../images/masks/iphone-5-8-mask-landscape.svg") center/cover no-repeat;
+        }
+        @media all and (min-width: 560px) and (max-width: 850px), all and (min-width: 1000px) {
+          width: calc(50% - 25px);
+          flex-basis: calc(50% - 25px);
+        }
+      }
+    }
+  }
+
+  & .field--name-field-url-cite {
+    font-size: .86em;
+    margin-top: 10px;
+    text-align: right;
+    & .field__label {
+      color: #7D7F83;
+      display: inline;
+      float: none;
+      font-weight: normal;
+      padding-right: .25em;
+    }
+  }
 }

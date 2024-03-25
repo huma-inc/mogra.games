@@ -4,6 +4,22 @@
  */
 
 /* Block has its own content wrapper. */
+
 .block .content {
   margin-top: 10px;
 }
+
+.path-search .block-system .content, .path-taxonomy .block-system .content {
+  margin-top: 15px;
+}
+
+@media all and (min-width: 560px) and (max-width: 850px), all and (min-width: 1100px) {
+  .block-system .content {
+    margin-top: 15px;
+  }
+  .path-search .block-system .content, .path-taxonomy .block-system .content {
+    margin-top: 20px;
+  }
+}
+
+

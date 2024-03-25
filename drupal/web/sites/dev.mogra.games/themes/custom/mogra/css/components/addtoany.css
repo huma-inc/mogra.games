@@ -1,0 +1,18 @@
+.share {
+  margin: 20px auto;
+  text-align: center
+}
+.share .a2a_kit a:hover, .share .a2a_kit a:active, .share .a2a_kit a:focus {
+    border: none;
+    opacity: .7;
+  }
+.share .addtoany_list.a2a_kit_size_32 a > span {
+    border-radius: 50%;
+    box-sizing: border-box;
+    height: 40px;
+    line-height: 40px;
+    opacity: 1;
+    width: 40px;
+    padding: 4px;
+  }
+

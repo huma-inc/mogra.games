@@ -1,0 +1,266 @@
+/**
+ * @file
+ * Styles for Mogra's Swiper.
+ */
+
+#block-views-block-pickup-block {
+  opacity: 0;
+  transition: opacity 250ms ease-in-out;
+  &.initialized {
+    opacity: 1;
+  }
+  & h2 {
+    font-size: 1.43em;
+    font-family: "M PLUS 1p", sans-serif;
+    letter-spacing: -.05em;
+    line-height: 30px;
+    margin: 0 0 7px;
+    padding-left: 5px;
+    text-shadow:
+      black 2px 0px,  black -2px 0px,
+      black 0px -2px, black 0px 2px,
+      black 2px 2px , black -2px 2px,
+      black 2px -2px, black -2px -2px,
+      black 1px 2px,  black -1px 2px,
+      black 1px -2px, black -1px -2px,
+      black 2px 1px,  black -2px 1px,
+      black 2px -1px, black -2px -1px,
+      black 4px 2px,  black 0px 2px,
+      black 2px 0px, black 2px 4px,
+      black 4px 4px , black 0px 4px,
+      black 4px 0px, black 0px 0px,
+      black 3px 4px,  black 1px 4px,
+      black 3px 0px, black 1px 0px,
+      black 4px 3px,  black 0px 3px,
+      black 4px 1px, black 0px 1px;
+    & span:nth-child(4n+1) { color: #ff3a24; }
+    & span:nth-child(4n+2) { color: #23c739; }
+    & span:nth-child(4n+3) { color: #3392ff; }
+    & span:nth-child(4n) { color: #ffcc00; }
+    & span:nth-child(6) { letter-spacing: -.1em; }
+    & span:nth-child(7) {
+      color: #ff80c4;
+      display: inline-block;
+      transform: rotate(20deg);
+    }
+  }
+  & .content {
+    margin-top: 0;
+  }
+  @media all and (min-width: 560px) {
+    & h2 {
+      padding-left: 0;
+    }
+  }
+  @media all and (min-width: 851px) {
+    & h2 {
+      font-size: 1.286em;
+      line-height: 25px;
+    }
+  }
+}
+
+.view-pickup {
+  margin-bottom: 50px;
+  position: relative;
+  & .swiper {
+    box-sizing: border-box;
+    width: calc(100% + 10px);
+    height: 110px;
+    margin-left: -5px;
+    margin-right: -5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    overflow: hidden;
+    & .swiper-wrapper {
+      & .swiper-slide {
+        width: 335px;
+        height: 100%;
+        & .pickup {
+          &:hover {
+            & .pickup__eyecatch {
+              & .media--image {
+                opacity: .7;
+                transform: scale(1.1);
+              }
+            }
+          }
+          background-color: #fffbf0;
+          border: solid 2px #392a13;
+          border-radius: 10px;
+          box-sizing: border-box;
+          box-shadow: 0 0 0 1px #8c816f inset;
+          color: inherit;
+          display: flex;
+          height: 100%;
+          padding: 3px;
+          overflow: hidden;
+          & .pickup__eyecatch {
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            flex-basis: 150px;
+            overflow: hidden;
+            & .media--image {
+              transition: transform 250ms ease-in-out;
+            }
+            & .media--ratio--32 {
+              padding-bottom: 66.66% !important;
+            }
+          }
+          & .pickup__content {
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            flex: 1;
+            padding: 7px 10px;
+            overflow: hidden;
+            & .pickup__title {
+              display: -webkit-box;
+              -webkit-line-clamp: 3;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+              font-size: 1em;
+              font-weight: bold;
+              line-height: 1.43;
+              margin: 0 0 5px;
+            }
+            & .pickup__desc {
+              display: none;
+            }
+            & .pickup__meta {
+              font-size: .667em;
+              margin-top: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  & .swiper-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    bottom: -40px;
+    & .swiper-pagination-bullets.swiper-pagination-horizontal {
+      display: inline-flex;
+      align-items: center;
+      width: auto;
+      margin-left: 15px;
+      margin-right: 15px;
+      position: static;
+      & .swiper-pagination-bullet {
+        opacity: 1;
+        background-color: #201813;
+      }
+      & .swiper-pagination-bullet-active {
+        border: solid 2px #201813;
+        background-color: #f5edd6;
+      }
+    }
+    & .swiper-button-next,
+    & .swiper-button-prev {
+      background-color: #201813;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      margin: 0;
+      align-items: baseline;
+      position: static;
+      &::after {
+        color: #f5edd6;
+        font-size: 25px;
+        font-family: "M PLUS 1p", sans-serif;
+      }
+      &.swiper-button-disabled {
+        opacity: 1;
+        &::after {
+          color: #4d3d33;
+        }
+      }
+    }
+    & .swiper-button-next {
+      &::after {
+        content: '\0203A';
+      }
+    }
+    & .swiper-button-prev {
+      &::after {
+        content: '\02039';
+      }
+    }
+  }
+}
+
+@media all and (min-width: 560px) {
+  .view-pickup {
+    & .swiper {
+      margin-left: -20px;
+      margin-right: -20px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}
+
+@media all and (min-width: 560px) and (max-width: 850px), all and (min-width: 1100px) {
+  .view-pickup {
+    & .swiper {
+      width: calc(100% + 40px);
+      height: 160px;
+      & .swiper-wrapper {
+        & .swiper-slide {
+          width: 512px;
+          & .pickup {
+            border-radius: 16px;
+            & .pickup__eyecatch {
+              border-top-left-radius: 11px;
+              border-bottom-left-radius: 11px;
+              flex-basis: 225px;
+            }
+            & .pickup__content {
+              padding: 10px 15px;
+              & .pickup__title {
+                -webkit-line-clamp: 2;
+              }
+              & .pickup__desc {
+                color: #61646b;
+                font-size: .86em;
+                text-align: justify;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (min-width: 851px) {
+  .view-pickup {
+    & .swiper {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      mask-image: linear-gradient(to right, transparent, black 20px, black calc(100% - 20px), transparent);
+      mask-size: calc(100% + 0px) 100%;
+      mask-position: center;
+      mask-repeat: no-repeat;
+      transition: mask-size 250ms ease-in-out, mask-position 250ms ease-in-out;
+      &.is-beginning {
+        mask-size: calc(100% + 20px) 100%;
+        mask-position: -20px center;
+      }
+      &.is-end {
+        mask-size: calc(100% + 20px) 100%;
+        mask-position: 0px center;
+      }
+    }
+  }
+}

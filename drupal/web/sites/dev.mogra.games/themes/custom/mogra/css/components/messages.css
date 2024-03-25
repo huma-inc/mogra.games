@@ -7,12 +7,22 @@
   padding: 0 0 0 8px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
 [dir="rtl"] .messages__wrapper {
   padding: 0 8px 0 0;
 }
+
 .messages:first-child {
-  margin-top: 28px;
+  margin-bottom: 20px;
 }
-.messages:last-child {
-  margin-bottom: 13px;
+
+.region-breadcrumb .messages {
+  margin-bottom: 10px;
 }
+
+@media all and (min-width: 560px) {
+  .region-breadcrumb .messages {
+    margin-bottom: 20px;
+  }
+}
+

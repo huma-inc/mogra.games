@@ -9,6 +9,9 @@ use Drupal\Component\Utility\Html;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Template\Attribute;
 use Drupal\views\Form\ViewsForm;
+use Drupal\node\Entity\Node;
+use Drupal\file\Entity\File;
+use Drupal\image\Entity\ImageStyle;
 
 /**
  * Implements hook_preprocess_HOOK() for HTML document templates.
@@ -58,6 +61,32 @@ function mogra_preprocess_page_title(&$variables) {
     // Make sure the shortcut link is the first item in title_suffix.
     $variables['title_suffix']['add_or_remove_shortcut']['#weight'] = -100;
   }
+
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $variables['type'] = $type = $node->type->target_id;
+    if ($type == 'introduce') {
+      $variables['nid'] = $node->nid->value;
+      if (count($node->field_platform) < 2) {
+        $variables['only_platform'] = $node->field_platform[0]->entity->label();
+      }
+    }
+  }
+
+  $current_path = \Drupal::request()->getpathInfo();
+  if ($current_path == '/search/node') {
+    if (\Drupal::request()->query->has('keys')) {
+      // Get the searched string.
+      $keywords = \Drupal::request()->query->get('keys');
+      if(!$keywords) {
+        \Drupal::messenger()->addMessage(t('Please enter some keywords.'), 'error');
+      }
+      // need to ensure the cache gets busted.
+      $variables['#cache']['contexts'][] = 'url.query_args:keys';
+      // Set the new title.
+      $new_title = new \Drupal\Core\StringTranslation\TranslatableMarkup('Search result for "@keywords"', ['@keywords' => $keywords]);
+      $variables['title'] = $new_title;
+    }
+  }
 }
 
 /**
@@ -84,6 +113,15 @@ function mogra_preprocess_node(&$variables) {
   // displayed on the page.
   if ($variables['teaser'] || !empty($variables['content']['comments']['comment_form'])) {
     unset($variables['content']['links']['comment']['#links']['comment-add']);
+  }
+
+  // TOC Enabled
+  $type = $variables['node']->get('type')->getValue()[0]['target_id'];
+  if ($type == 'article') {
+    if ($variables['node']->get('field_toc_enabled')->getValue()[0]['value']) {
+      $variables['content']['toc_enabled'] = TRUE;
+      $variables['#attached']['library'][] = 'mogra/tocbot';
+    }
   }
 }
 
@@ -144,6 +182,29 @@ function mogra_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 }
 
 /**
+ * @param $variables
+ */
+function mogra_preprocess_views_view_fields(&$variables) {
+  $view = $variables['view'];
+  $row = $variables['row'];
+  if ($view->current_display == 'block_cta') {
+    $filter = $row->_relationship_entities['field_game_title']->field_machine_name->getString();
+    $view_page = \Drupal\views\Views::getView('article');
+    $view_page->setArguments([strval($filter)]);
+    $view_page->execute();
+
+    $view->is_summary_page = $view_page->total_rows > 0;
+  }
+  if ($view->current_display == 'block_walkthrough_apps') {
+    $machine_name = $row->taxonomy_term__field_machine_name_field_machine_name_value;
+    $path = \Drupal::service('path_alias.manager')->getPathByAlias('/introduce/'.$machine_name);
+    if(preg_match('/node\/(\d+)/', $path, $matches)) {
+      $variables['fields']['nid_artwork']->content = $matches[1];
+    }
+  }
+}
+
+/**
  * Implements hook_preprocess_links__media_library_menu().
  *
  * This targets the menu of available media types in the media library's modal
@@ -196,5 +257,136 @@ function mogra_preprocess_links(&$variables) {
         $variables['links'][$key]['attributes']->addClass($class);
       }
     }
+  }
+}
+
+function mogra_preprocess_paragraph(&$variables) {
+  $paragraph = $variables['paragraph'];
+  $bundle = $paragraph->bundle();
+
+  // Implements Heading.
+  switch ($bundle) {
+    case 'h2': $heading = '<h2 id="tocid-' . $paragraph->get('id')[0]->getValue()['value'] . '">' . $paragraph->get('field_text_short')->getValue()[0]['value'] . '</h2>'; break;
+    case 'h3': $heading = '<h3 id="tocid-' . $paragraph->get('id')[0]->getValue()['value'] . '">' . $paragraph->get('field_text_short')->getValue()[0]['value'] . '</h3>'; break;
+    case 'h4': $heading = '<h4 id="tocid-' . $paragraph->get('id')[0]->getValue()['value'] . '">' . $paragraph->get('field_text_short')->getValue()[0]['value'] . '</h4>'; break;
+  }
+  if (isset($heading)) {
+    $variables['body_paragraphs'][$bundle] = ['#markup' => $heading];
+  }
+
+  // Implements List.
+  if ($bundle == 'list') {
+    $style = $paragraph->get('field_style_list')->getValue()[0]['value'];
+
+    if ($style == 'ol_point' || $style == 'ol_check') {
+      $variables['body_paragraphs'][$bundle]['type'] = 'ol';
+    }
+    if ($style == 'ul_point' || $style == 'ol_point') {
+      $variables['body_paragraphs'][$bundle]['style'] = 'point';
+    }
+    foreach ($paragraph->get('field_text_list')->getValue() as $key => $item) {
+      $variables['body_paragraphs'][$bundle]['items'][$key] = $item['value'];
+    }
+  }
+
+  // Implements Related article.
+  if ($bundle == 'related_article') {
+    $nid = $paragraph->get('field_nid')->getValue()[0]['value'];
+    $node = Node::load($nid); // Node load
+    if ($node) {
+      $tid_game_title = $node->field_game_title->getString();
+      $tid_category_article = $node->field_category_article->getString();
+      $related_article['alias'] = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $nid);
+      $related_article['title'] = $node->get('title')->value;
+      $related_article['description'] = $node->get('field_description')->value;
+      $related_article['category_article'] = \Drupal\taxonomy\Entity\Term::load($tid_category_article)->getName();
+
+      // Game title.
+      $term_game_title = \Drupal\taxonomy\Entity\Term::load($tid_game_title);
+      if (!empty($term_game_title->field_game_title_abbrev)) {
+        $related_article['game_title'] = $term_game_title->field_game_title_abbrev->getString();
+      } else {
+        $related_article['game_title'] = $term_game_title->getName();
+      }
+
+      // Eyecath image.
+      $image_uri = File::load($node->get('field_eyecatch')->target_id)->uri->getString();
+      $related_article['image_url'] = ImageStyle::load('thumbnail_eyecatch')->buildUrl($image_uri);
+
+      $variables['body_paragraphs'][$bundle] = $related_article;
+    }
+  }
+
+  // Implements Image.
+  if ($bundle == 'image') {
+    $caption = $paragraph->get('field_text_short')->getValue()[0]['value'];
+    if ($caption) {
+      $variables['body_paragraphs'][$bundle]['caption'] = $caption;
+    }
+  }
+
+  if ($bundle == 'image_formatter') {
+    $items = $paragraph->get('field_image_content')->getValue();
+    $is_portrait = $paragraph->get('field_is_portrait')->getValue()[0]['value'];
+
+    $style = '';
+    if (count($items) == 2) $style = 'column';
+    if (intval($is_portrait)) {
+      $style = $style ? $style . ' portrait' : 'portrait';
+    }
+    if (isset($style)) {
+      $variables['body_paragraphs'][$bundle]['style'] = $style;
+    }
+
+    foreach ($items as $key => $item) {
+      $variables['body_paragraphs'][$bundle]['target_id'][$key] = $item['target_id'];
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for field--block-content--carousel.html.twig.
+
+function mogra_preprocess_field__block_content__carousel(&$variables) {
+
+  for ($i = 0; $i < count($variables['items']); $i++) {
+    $nid = $variables['items'][$i]['content']['#markup'];
+    $node = Node::load($nid); // Node load
+    $term_id = $node->field_game_title->getString();
+    $caroucel[$i]['nid'] = $nid;
+    $caroucel[$i]['alias'] = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$nid);
+    $caroucel[$i]['title'] = $node->get('title')->value;
+
+    $settings = [
+      'uri' => File::load($node->get('field_eyecatch')->target_id)->uri->getString(),
+      'lazy' => 'blazy',
+      'image_style' => 'medium',
+    ];
+
+    $caroucel[$i]['thumbnail'] = [
+      '#theme' => 'blazy',
+      '#settings' => $settings,
+      '#item_attributes' => [
+        'alt'   => t('Thumbnail'),
+        'title' => t('Thumbnail title'),
+        'width' => 225,
+        'height' => 150,
+      ],
+      '#attached' => ['library' => ['blazy/load']],
+    ];
+
+    $caroucel[$i]['eyecatch_uri'] = File::load($node->get('field_eyecatch')->target_id)->uri->getString();
+    $caroucel[$i]['game_title'] = \Drupal\taxonomy\Entity\Term::load($term_id)->getName();
+    kint(\Drupal\taxonomy\Entity\Term::load($term_id)->getName());
+  }
+  $variables['caroucel'] = $caroucel;
+} */
+
+/**
+ * Implements hook_preprocess_HOOK() for Frontpage templates. */
+function mogra_preprocess_page(&$variables) {
+  $route = "view.frontpage.page_1";
+  if (\Drupal::routeMatch()->getRouteName() === $route) {
+    $variables['#attached']['library'][] = 'mogra/swiper';
   }
 }

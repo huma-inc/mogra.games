@@ -1,10 +1,95 @@
 /* ------------------ Sidebar ----------------- */
 
+.sidebar .section {
+  padding: 10px 5px 0;
+}
+.sidebar .block {
+  margin: 0 0 10px;
+  border-width: 20px;
+  border-style: solid;
+  border-image: url(../../images/bg_container.png) 40 fill stretch;
+  &:last-child {
+    margin: 0;
+  }
+}
+.sidebar {
+  & h2 {
+    color: #201813;
+    font-family: "M PLUS 1p", sans-serif;
+    font-size: 1.43em;
+    line-height: 30px;
+    margin: 0;
+  }
+  & #block-views-block-genre-block-1 h2::before,
+  & #block-views-block-content-recent-block-1 h2::before,
+  & #block-views-block-content-popular-block-1 h2::before {
+    background-image: url(../../images/icons.png);
+    background-position: -6px -6px;
+    background-size: 126px auto;
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 7px;
+    vertical-align: top;
+  }
+  & #block-views-block-genre-block-1 h2::before {
+    background-position: -6px -48px;
+  }
+  & #block-views-block-content-popular-block-1 h2::before {
+    background-position: -48px -6px;
+  }
+  & .featured-apps-block {
+    border: none;
+    & > .content {
+      margin-top: 0;
+    }
+    @media all and (max-width: 559px) {
+      margin: 10px 15px 20px;
+    }
+  }
+  @media all and (min-width: 851px) {
+    & h2 {
+      font-size: 1.286em;
+      line-height: 25px;
+    }
+    & #block-views-block-genre-block-1 h2::before,
+    & #block-views-block-content-recent-block-1 h2::before,
+    & #block-views-block-content-popular-block-1 h2::before {
+      background-position: -5px -5px;
+      background-size: 105px auto;
+      width: 25px;
+      height: 25px;
+    }
+    & #block-views-block-genre-block-1 h2::before {
+      background-position: -5px -40px;
+    }
+    & #block-views-block-content-popular-block-1 h2::before {
+      background-position: -40px -5px;
+    }
+  }
+}
+
+.sidebar tbody {
+  border: none;
+}
+.sidebar tr.even,
+.sidebar tr.odd {
+  border-bottom: 1px solid #d6d6d6;
+  background: none;
+}
+
 @media all and (min-width: 560px) {
   .sidebar {
     position: relative;
     float: left; /* LTR */
     width: 50%;
+  }
+  .sidebar .section {
+    padding: 20px 20px 0;
+  }
+  .sidebar .block {
+    margin: 0 0 20px;
   }
   [dir="rtl"] .sidebar {
     float: right;
@@ -15,54 +100,55 @@
 }
 
 @media all and (min-width: 851px) {
+  #sidebar-first .section,
+  #sidebar-second .section {
+    padding-top: 0;
+  }
+
   .layout-one-sidebar .sidebar {
-    width: 25%;
+    width: 200px;
   }
   #sidebar-first {
-    width: 25%;
+    width: 200px;
     margin-left: -100%; /* LTR */
   }
   [dir="rtl"] #sidebar-first {
     margin-right: -100%;
     margin-left: 0;
   }
+
   #sidebar-second {
     clear: none;
-    width: 25%;
-    margin-left: -25%; /* LTR */
+    width: 376px;
+    margin-left: -376px; /* LTR */
   }
   [dir="rtl"] #sidebar-second {
-    margin-right: -25%;
+    margin-right: -376px;
     margin-left: 0;
   }
+
+  /* Hidden sidebar second
+  .layout-two-sidebars:not(.path-node):not(.path-search) #sidebar-second {
+    display: none;
+  }
+  .layout-two-sidebars:not(.path-node):not(.path-search) #sidebar-first {
+    width: 200px;
+    margin-left: -100%; /* LTR
+  }
+  .layout-two-sidebars:not(.path-node):not(.path-search) #sidebar-first .section {
+    padding-right: 20px;
+  }
+  [dir="rtl"] .layout-two-sidebars:not(.path-node):not(.path-search) #sidebar-first {
+    margin-right: -100%;
+    margin-left: 0;
+  } */
 }
 
-.sidebar .section {
-  padding: 10px 15px 0;
-}
-.sidebar .block {
-  margin: 0 0 20px;
-  padding: 15px 20px;
-  border-width: 1px;
-  border-style: solid;
-}
-.sidebar h2 {
-  margin: 0 0 0.5em;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #d6d6d6;
-  text-shadow: 0 1px 0 #fff;
-  font-size: 1.071em;
-  line-height: 1.2;
-}
-.sidebar .block .content {
-  font-size: 0.914em;
-  line-height: 1.4;
-}
-.sidebar tbody {
-  border: none;
-}
-.sidebar tr.even,
-.sidebar tr.odd {
-  border-bottom: 1px solid #d6d6d6;
-  background: none;
+@media all and (min-width: 560px) and (max-width: 850px) {
+  .layout-two-sidebars #sidebar-first .section {
+    padding-right: 10px;
+  }
+  .layout-two-sidebars #sidebar-second .section {
+    padding-left: 10px;
+  }
 }

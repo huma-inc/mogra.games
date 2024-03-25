@@ -16,3 +16,17 @@ mogra.wide:
   weight: 2
   multipliers:
     - 1x
+mogra.srcset:
+  label: Srcset
+  mediaQuery: ''
+  weight: 3
+  multipliers:
+    - 1x
+    - 2x
+mogra.srcset-nerrow:
+  label: Srcset Nerrow
+  mediaQuery: '(max-width: 439px), (min-width: 851px) and (max-width: 999px)'
+  weight: 4
+  multipliers:
+    - 1x
+    - 2x

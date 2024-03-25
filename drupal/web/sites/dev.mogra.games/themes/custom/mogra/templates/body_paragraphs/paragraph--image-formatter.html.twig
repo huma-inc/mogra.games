@@ -1,0 +1,15 @@
+{%
+  set classes = [
+  'image-container',
+  body_paragraphs.image_formatter.style ? body_paragraphs.image_formatter.style,
+]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+  {% for id in body_paragraphs.image_formatter.target_id %}
+    {{ drupal_entity('paragraph', id, 'image_child') }}
+  {% endfor %}
+</div>
+
+
+

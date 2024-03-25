@@ -1,0 +1,135 @@
+{#
+/**
+ * @file
+ * Default view template to display all the fields in a row.
+ *
+ * Available variables:
+ * - view: The view in use.
+ * - fields: A list of fields, each one contains:
+ *   - content: The output of the field.
+ *   - raw: The raw data for the field, if it exists. This is NOT output safe.
+ *   - class: The safe class ID to use.
+ *   - handler: The Views field handler controlling this field.
+ *   - inline: Whether or not the field should be inline.
+ *   - wrapper_element: An HTML element for a wrapper.
+ *   - wrapper_attributes: List of attributes for wrapper element.
+ *   - separator: An optional separator that may appear before a field.
+ *   - label: The field's label text.
+ *   - label_element: An HTML element for a label wrapper.
+ *   - label_attributes: List of attributes for label wrapper.
+ *   - label_suffix: Colon after the label.
+ *   - element_type: An HTML element for the field content.
+ *   - element_attributes: List of attributes for HTML element for field content.
+ *   - has_label_colon: A boolean indicating whether to display a colon after
+ *     the label.
+ *   - element_type: An HTML element for the field content.
+ *   - element_attributes: List of attributes for HTML element for field content.
+ * - row: The raw result from the query, with all data it fetched.
+ *
+ * @see template_preprocess_views_view_fields()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% if view.current_display == 'block_cta' %}
+  <aside class="cta">
+    <div class="cta__container">
+      <div class="product-header">
+        <div class="l-left">
+          <div class="product-header__artwork">
+            {{ fields.field_artwork.content }}
+          </div>
+        </div>
+        <div class="l-right">
+          <header>
+            <h2>{{ fields.field_game_title.content }}</h2>
+            <h3>{{ fields.field_developer.content }}</h3>
+            <ul class="inline-list inline-list--genre">
+              {{ fields.field_genre.content }}
+            </ul>
+            <ul class="inline-list inline-list--paid-app">
+              <li class="inline-list__item">
+                {{ fields.field_paid_app.content }}{% if fields.field_annotation_payment.content|render|striptags|trim %}:&nbsp;{{ fields.field_annotation_payment.content }}{% endif %}
+              </li>
+            </ul>
+          </header>
+        </div>
+      </div>
+      <table border="1" cellpadding="1" cellspacing="1" summary="{{ fields.field_game_title.content }}の概要">
+        <tbody>
+        {% if fields.field_url_website.content|render|striptags|trim %}
+          <tr>
+            <th scope="row">公式サイト</th>
+            <td><a href="{{ fields.field_url_website.content }}" target="_blank">{{ fields.field_url_website.content }}</a></td>
+          </tr>
+        {% endif %}
+        {% if fields.field_url_twitter.content|render|striptags|trim %}
+          <tr>
+            <th scope="row">Twitter</th>
+            <td><a href="{{ fields.field_url_twitter.content }}" target="_blank">{{ fields.field_url_twitter.content }}</a></td>
+          </tr>
+        {% endif %}
+        {% if fields.field_url_youtube.content|render|striptags|trim %}
+          <tr>
+            <th scope="row">YouTube</th>
+            <td><a href="{{ fields.field_url_youtube.content }}" target="_blank">{{ fields.field_url_youtube.content }}</a></td>
+          </tr>
+        {% endif %}
+        </tbody>
+      </table>
+      {% if view.is_summary_page %}
+      <div class="cta__summary">
+        {% set url = '/game-title/' ~fields.field_machine_name.content|render|striptags|trim %}
+        <a href="{{ drupal_url(url) }}" class="button-md">{{ fields.nothing.content }}の記事をみる</a>
+      </div>
+      {% endif %}
+    </div>
+    <div class="cta__app-download">
+      {% if fields.field_game_title_abbrev.content %}
+        <h3>{{ fields.field_game_title_abbrev.content }} をプレイしよう！</h3>
+      {% else %}
+        <h3>{{ fields.field_game_title.content }} をプレイしよう！</h3>
+      {% endif %}
+      {% if fields.field_url_app_store.content %}
+        <a class="appstore" href="{{ fields.field_url_app_store.content }}" target="_blank"><img alt="download on the app store" src="/sites/default/themes/custom/mogra/images/badges/app-store/ja.png" width="270" height="80"></a>
+      {% endif %}
+      {% if fields.field_url_google_play.content %}
+        <a class="googleplay" href="{{ fields.field_url_google_play.content }}" target="_blank"><img alt="get it on google play" src="/sites/default/themes/custom/mogra/images/badges/google-play/ja.png" width="270" height="80"></a>
+      {% endif %}
+    </div>
+  </aside>
+{% elseif view.current_display == 'block_walkthrough_apps' %}
+  {% set url = '/walkthrough/' ~fields.field_machine_name.content|render|striptags|trim %}
+  <span data-quickedit-entity-id="node/{{ fields.nid_artwork.content }}">
+  <a href="{{ drupal_url(url) }}">
+    {{ drupal_field('field_artwork', 'node', fields.nid_artwork.content) }}
+    {% if fields.field_game_title_abbrev.content|render|striptags|trim %}
+      <{{ fields.field_game_title_abbrev.element_type }}{{ fields.field_game_title_abbrev.element_attributes }}>{{ fields.field_game_title_abbrev.content }}</{{ fields.field_game_title_abbrev.element_type }}>
+    {% else %}
+      <{{ fields.name.element_type }}{{ fields.name.element_attributes }}>{{ fields.name.content }}</{{ fields.name.element_type }}>
+    {% endif %}
+  </a>
+{% else %}
+  {% for field in fields -%}
+    {{ field.separator }}
+    {%- if field.wrapper_element -%}
+      <{{ field.wrapper_element }}{{ field.wrapper_attributes }}>
+    {%- endif %}
+    {%- if field.label -%}
+      {%- if field.label_element -%}
+        <{{ field.label_element }}{{ field.label_attributes }}>{{ field.label }}{{ field.label_suffix }}</{{ field.label_element }}>
+      {%- else -%}
+        {{ field.label }}{{ field.label_suffix }}
+      {%- endif %}
+    {%- endif %}
+    {%- if field.element_type -%}
+      <{{ field.element_type }}{{ field.element_attributes }}>{{ field.content }}</{{ field.element_type }}>
+    {%- else -%}
+      {{ field.content }}
+    {%- endif %}
+    {%- if field.wrapper_element -%}
+      </{{ field.wrapper_element }}>
+    {%- endif %}
+  {%- endfor %}
+{% endif %}

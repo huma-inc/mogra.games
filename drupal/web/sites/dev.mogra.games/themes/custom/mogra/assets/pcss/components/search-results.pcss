@@ -26,3 +26,99 @@
 [dir="rtl"] .search-result__snippet-info {
   padding-right: 0;
 }
+
+.view-search-article {
+  & .search-results {
+    list-style: none;
+    & .search-result {
+      margin: 0;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee9dd;
+      &:last-child {
+        border-bottom: none;
+      }
+      & a {
+        color: inherit;
+        display: flex;
+        align-items: flex-start;
+        border-bottom: none;
+        & .search-result__eyecatch {
+          flex-basis: 120px;
+          & img {
+            border-radius: 5px;
+            transition: transform 250ms ease-in-out;
+          }
+        }
+        & .search-result__content {
+          flex: 1;
+          margin-left: 10px;
+          & .search-result__title {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+
+            font-size: 1em;
+            font-weight: bold;
+            line-height: 1.43;
+            margin: 0;
+          }
+          & .search-result__body {
+            display: none;
+          }
+          & .search-result__meta {
+            font-size: .7143em;
+            margin-top: 5px;
+            & svg {
+              margin-right: .25em;
+            }
+          }
+        }
+        &:hover {
+          & .search-result__eyecatch img {
+            opacity: .7;
+          }
+        }
+      }
+    }
+  }
+
+  @media all and (min-width: 560px) and (max-width: 850px), all and (min-width: 1100px) {
+    & .search-results {
+      & .search-result {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        & a {
+          & .search-result__eyecatch {
+            flex-basis: 200px;
+            & img {
+              border-radius: 10px;
+              transition: transform 250ms ease-in-out;
+            }
+          }
+          & .search-result__content {
+            margin-left: 20px;
+            & .search-result__title {
+              font-size: 1.2143em;
+              line-height: 1.4706;
+              margin-bottom: 5px;
+            }
+            & .search-result__body {
+              color: #797d86;
+              font-size: .93em;
+              display: block;
+              line-height: 1.54;
+              & strong {
+                color: #303236;
+              }
+            }
+            & .search-result__meta {
+              margin-top: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

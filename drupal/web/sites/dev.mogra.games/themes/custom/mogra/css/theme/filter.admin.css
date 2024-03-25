@@ -7,6 +7,7 @@
 /**
  * Filter information under field.
  */
+
 .text-format-wrapper > .form-item {
   margin-bottom: 0;
 }
@@ -18,9 +19,11 @@
   border: 1px solid #ccc;
   border-top: 0;
 }
+
 .filter-wrapper .form-item {
   margin: 0;
 }
+
 .filter-wrapper .form-item label {
   display: inline;
 }
@@ -28,22 +31,28 @@
 .filter-help {
   float: right; /* LTR */
 }
+
 [dir="rtl"] .filter-help {
   float: left;
 }
+
 .filter-guidelines .filter-guidelines-item {
   margin-top: 1em;
 }
+
 .filter-help p {
   margin: 0;
 }
+
 .filter-help a {
   position: relative;
   margin: 0 20px 0 0; /* LTR */
 }
+
 [dir="rtl"] .filter-help a {
   margin: 0 0 0 20px;
 }
+
 .filter-help a:after {
   position: absolute;
   top: 0;
@@ -52,8 +61,9 @@
   width: 16px;
   height: 16px;
   content: "";
-  background: transparent url(../../../../../misc/help.png);
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA7UlEQVR42qWTPQqDQBCFcwSPkCNITpAj5AjeIm1uYpkyR7Cy2Mot7OwsBAsRwUKwmOwLGRle3EIy8PyBfZ/z3J2TiPylz8VWWZZpUB40BonRKyizaxkA88MYYiqCEgv4MTvnZJom0VqWRbz3FlJZgLYtqmEY1Lg9r+sKsIXcLSC3AC019H0vqLquLeC5AfiHYSGkcdAJimKIBQiJ4+CO92OAtm0FNc8zOjkMwE5Q63FAtbeg6zpAYvG8BWR7i5qmQYwY4MIHqYhE2DOPQWcGJBQF2XU72ZzyUeZ5GCNt5/hybJgYdAXsq5sOEE/jG6dC5IOqCXTmAAAAAElFTkSuQmCC);
 }
+
 [dir="rtl"] .filter-help a:after {
   right: auto;
   left: -20px;
@@ -62,6 +72,7 @@
 .text-format-wrapper .description {
   margin-top: 0.5em;
 }
+
 .tips {
   margin-top: 0;
   margin-bottom: 0;
@@ -73,9 +84,12 @@
 /**
  * Improve filter tips position.
  */
+
 .tips {
   padding-left: 0; /* LTR */
 }
+
 [dir="rtl"] .tips {
   padding-right: 0;
 }
+

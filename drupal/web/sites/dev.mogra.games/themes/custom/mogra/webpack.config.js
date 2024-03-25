@@ -5,8 +5,8 @@ const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
 
 // configuration BabelJS.
 const babelEntries = {};
-glob.sync('./babel/**/*.es6.js').map(function (file) {
-  const regEx = new RegExp(`./babel/`, `g`);
+glob.sync('./assets/babel/**/*.es6.js').map(function (file) {
+  const regEx = new RegExp(`./assets/babel/`, `g`);
   const key = file.replace(regEx, '').replace(/\.es6\.js$/, '');
   babelEntries[key] = path.resolve(__dirname, file);
 });
@@ -14,7 +14,7 @@ glob.sync('./babel/**/*.es6.js').map(function (file) {
 const configBabel = {
   entry: babelEntries,
   output: {
-    path: path.resolve(__dirname, '../js/'),
+    path: path.resolve(__dirname, 'js/'),
     filename: '[name].js'
   },
   module: {
@@ -52,8 +52,8 @@ const configBabel = {
 
 // configuration postcss
 const pcssEntries = {};
-glob.sync('./pcss/**/*.pcss').map(function (file) {
-  const regEx = new RegExp(`./pcss/`, `g`);
+glob.sync('./assets/pcss/**/*.pcss').map(function (file) {
+  const regEx = new RegExp(`./assets/pcss/`, `g`);
   const key = file.replace(regEx, '').replace(/\.pcss$/, '');
   pcssEntries[key] = path.resolve(__dirname, file);
 });
@@ -61,7 +61,7 @@ glob.sync('./pcss/**/*.pcss').map(function (file) {
 const configPostCSS = {
   entry: pcssEntries,
   output: {
-    path: path.resolve(__dirname, '../css/'),
+    path: path.resolve(__dirname, 'css/'),
     filename: '[name].js',
     publicPath: '',
   },
@@ -83,8 +83,8 @@ const configPostCSS = {
         ]
       },
       {
-        test: /\.(png|jpg|gif|svg)$/i,
-        exclude: /fonts/,
+        test: /\.(webp|png|jpg|gif|svg)$/i,
+        exclude: /assets\/fonts/,
         oneOf: [
           {
             resourceQuery: /tier1|tier2|tier3/,
@@ -94,10 +94,6 @@ const configPostCSS = {
                 options: {
                   name: '[name].[ext][query]',
                   outputPath: '../images/',
-                  /*
-                  * インライン化したくない100KBを超える画像はassets/imagesまでの
-                  * 階層をクエリーで指定して(tier1/tier2/...)URLを出力する
-                  * */
                   publicPath: (url) => {
                     if (/\?tier1/.test(url)) {
                       return `../images/${url}`;
@@ -118,7 +114,7 @@ const configPostCSS = {
       },
       {
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/i,
-        include: /fonts/,
+        include: /assets\/fonts/,
         type: 'asset/resource',
         generator: {
           filename: '../fonts/[name][ext]'

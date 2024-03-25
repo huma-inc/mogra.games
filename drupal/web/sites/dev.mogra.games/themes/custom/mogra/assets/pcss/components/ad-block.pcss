@@ -1,0 +1,42 @@
+/**
+ * @file
+ * Styles for Mogra's ad block.
+ */
+#block-recommend,
+#block-adsense-sidebar-first-lower,
+#block-adsense-sidebar-second-upper,
+#block-adsense-sidebar-second-lower {
+  border: none;
+  padding: 0;
+  & .content {
+    margin-top: 0;
+    text-align: center;
+  }
+}
+
+.block-views-blockcta-cta + .ap_container {
+  margin-top: 15px !important;
+}
+.node__content {
+  & .ap_container {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+}
+
+#billboard {
+  margin-bottom: 40px;
+  text-align: center;
+  & .layout-container {
+    padding: 0 5px;
+  }
+  & .content {
+    margin-top: 0;
+  }
+
+  @media all and (min-width: 560px) {
+    & .layout-container {
+      padding: 0 20px;
+    }
+  }
+}

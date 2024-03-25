@@ -60,6 +60,10 @@
       <div class="menu-toggle-target" id="{{ hide_anchor }}"></div>
       <a class="menu-toggle" href="#{{ show_anchor }}">{% trans %} Show &mdash; {{ configuration.label }}{% endtrans %}</a>
       <a class="menu-toggle menu-toggle--hide" href="#{{ hide_anchor }}">{% trans %} Hide &mdash; {{ configuration.label }}{% endtrans %}</a>
+      {#
+      {% if plugin_id == 'system_menu_block:main' %}
+        {{ drupal_block('views_exposed_filter_block:search_article-page_1') }}
+      {% endif %} #}
       {{ content }}
     </div>
   {% endblock %}

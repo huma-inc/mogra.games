@@ -5,13 +5,12 @@
 
 .site-branding__logo {
   display: inline-block;
-  margin-right: 1em; /* LTR */
-  margin-bottom: 0.286em;
+  margin-bottom: 0.357em;
   border-bottom: 0;
 }
-[dir="rtl"] .site-branding__logo {
-  margin-right: 0;
-  margin-left: 1em;
+.site-branding__logo img {
+  vertical-align: top;
+  height: 32px;
 }
 .site-branding__text {
   display: inline-block;
@@ -19,6 +18,12 @@
 }
 
 @media all and (min-width: 461px) {
+  .site-branding__logo {
+    margin-bottom: 15px;
+  }
+  .site-branding__logo img {
+    height: 48px;
+  }
   .site-branding__text {
     margin-bottom: 1.857em;
   }

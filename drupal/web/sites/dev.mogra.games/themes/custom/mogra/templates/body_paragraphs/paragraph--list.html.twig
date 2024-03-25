@@ -1,0 +1,27 @@
+{%
+  set classes = [
+    'list-summary',
+    body_paragraphs.list.style == 'point' ? 'list-summary--point' : 'list-summary--check',
+  ]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+  {% if body_paragraphs.list.style == 'point' %}
+    <div class="list-summary__title">POINT!</div>
+  {% else %}
+    <div class="list-summary__title">CHECK!</div>
+  {% endif %}
+  {% if body_paragraphs.list.type == 'ol' %}
+    <ol>
+      {% for item in body_paragraphs.list.items %}
+        <li>{{ item }}</li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    <ul>
+      {% for item in body_paragraphs.list.items %}
+        <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>

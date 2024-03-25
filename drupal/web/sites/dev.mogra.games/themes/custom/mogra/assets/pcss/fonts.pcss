@@ -2,3 +2,54 @@
  * @file
  * Font styles for Mogra's.
  */
+
+
+@font-face {
+  font-family: 'mogra';
+  src:  url('../fonts/mogra.eot?2cg9u6');
+  src:  url('../fonts/mogra.eot?2cg9u6#iefix') format('embedded-opentype'),
+  url('../fonts/mogra.ttf?2cg9u6') format('truetype'),
+  url('../fonts/mogra.woff?2cg9u6') format('woff'),
+  url('../fonts/mogra.svg?2cg9u6#mogra') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@define-placeholder icon-mogra {
+   /* use !important to prevent issues with browser extensions that change fonts */
+   font-family: 'mogra' !important;
+   speak: none;
+   font-style: normal;
+   font-weight: normal;
+   font-variant: normal;
+   text-transform: none;
+
+   /* Better Font Rendering =========== */
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+
+.body_paragraphs ul li::before {
+  @extend icon-mogra;
+}
+
+@define-placeholder external-link {
+  content: "";
+  display: inline-block;
+  width: 1.125em;
+  height: 1em;
+  margin-left: .25em;
+  vertical-align: -.0625em;
+  background-color: #3370cc;
+  mask-image: url(../fonts/external-link.svg);
+}
+
+.node__content p a[target="_blank"]::after {
+  @extend external-link;
+}
+.node__content .button-sm[target="_blank"]::after,
+.node__content .button-md[target="_blank"]::after,
+.node__content .button-lg[target="_blank"]::after {
+  @extend external-link;
+  background-color: #f5edd6 !important;
+}

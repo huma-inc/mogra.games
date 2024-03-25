@@ -1,0 +1,53 @@
+/**
+ * @file
+ * Styles for Mogra's table of contents.
+ */
+
+.toc {
+  background: #fff;
+  border: 1px solid #d9d0bf;
+  box-sizing: border-box;
+  max-width: 560px;
+  margin: 20px auto;
+  padding: 20px 15px 20px 10px;
+  & .toc-heading {
+    color: #181818;
+    font-family: "M PLUS 1p", sans-serif;
+    font-size: 1.334em;
+    line-height: 25px;
+    letter-spacing: .25em;
+    margin-bottom: 15px;
+    text-align: center;
+    &::before {
+      background-image: url(../../images/icons.png);
+      background-position: -75px -5px;
+      background-size: 105px auto;
+      content: '';
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      margin-right: 5px;
+      vertical-align: top;
+    }
+  }
+
+
+  & nav > ol {
+    margin: 0;
+    & > li + li {
+      margin-top: 10px;
+    }
+  }
+  & .toc-list {
+    font-weight: bold;
+    line-height: 1.334;
+    & a {
+      color: #213e78;
+    }
+    &.is-collapsible {
+      font-size: .867em;
+      font-weight: normal;
+      padding-left: 30px;
+    }
+  }
+}

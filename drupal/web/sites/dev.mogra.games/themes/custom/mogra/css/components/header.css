@@ -9,26 +9,14 @@
   padding: 0.357em 15px 0;
 }
 .region-header .site-branding {
-  margin-top: 0.429em;
+  margin-top: 0.357em;
+  text-align: center;
 }
-
 @media all and (min-width: 461px) {
-  .region-header .block {
-    float: right; /* LTR */
-    margin-top: 0.357em;
-  }
-  [dir="rtl"] .region-header .block {
-    float: left;
-  }
   .region-header .site-branding {
-    float: left; /* LTR */
-    /* margin-bottom: 1.857em; */
-  }
-  [dir="rtl"] .region-header .site-branding {
-    float: right;
+    margin-top: 15px;
   }
 }
-
 @media screen and (max-width: 460px) {
   .region-header {
     padding-bottom: 0.357em;
@@ -40,8 +28,19 @@
   margin: 0 0 1em;
   font-size: 0.857em;
 }
-
 @media all and (min-width: 901px) {
+  .region-header .block {
+    float: right; /* LTR */
+  }
+  [dir="rtl"] .region-header .block {
+    float: left;
+  }
+  .region-header .site-branding {
+    float: left; /* LTR */
+  }
+  [dir="rtl"] .region-header .site-branding {
+    float: right;
+  }
   .region-header .block:not(.site-branding) {
     margin: 1.167em 0 1em;
   }
@@ -63,7 +62,6 @@
 .region-header .block li {
   padding: 0;
   list-style: none;
-  list-style-image: none;
 }
 .region-header .branding {
   font-size: 1em;
@@ -80,14 +78,12 @@
   margin-right: 0;
   margin-left: 2px;
 }
-.region-header .form-text:hover,
-.region-header .form-text:focus,
-.region-header .form-text:active {
+.region-header .form-text:hover, .region-header .form-text:focus, .region-header .form-text:active {
   background: #fff;
   background: rgba(255, 255, 255, 0.8);
 }
 .region-header .form-required:after {
-  background-image: url(../../images/required.svg);
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjciIGQ9Ik0wLDcuNTYybDEuMTE0LTMuNDM4YzIuNTY1LDAuOTA2LDQuNDMsMS42ODgsNS41OSwyLjM1QzYuMzk4LDMuNTUzLDYuMjM3LDEuNTQ0LDYuMjIsMC40NDdoMy41MTEgYy0wLjA1LDEuNTk3LTAuMjM0LDMuNi0wLjU1OCw2LjAwM2MxLjY2NC0wLjgzOCwzLjU2Ni0xLjYxMyw1LjcxNC0yLjMyNUwxNiw3LjU2MmMtMi4wNSwwLjY3OC00LjA2LDEuMTMxLTYuMDI4LDEuMzU2IGMwLjk4NCwwLjg1NiwyLjM3MiwyLjM4MSw0LjE2Niw0LjU3NWwtMi45MDYsMi4wNTljLTAuOTM1LTEuMjc0LTIuMDQxLTMuMDA5LTMuMzE2LTUuMjA2Yy0xLjE5NCwyLjI3NS0yLjI0NCw0LjAxMy0zLjE0Nyw1LjIwNiBsLTIuODU2LTIuMDU5YzEuODcyLTIuMzA3LDMuMjExLTMuODMyLDQuMDE3LTQuNTc1QzMuODQ5LDguNTE2LDEuODcyLDguMDYyLDAsNy41NjIiLz48L3N2Zz4K);
 }
 /* Region header block menus. */
 .region-header .block-menu {
@@ -104,9 +100,7 @@
   border-bottom-color: #eee;
   border-bottom-color: rgba(255, 255, 255, 0.2);
 }
-.region-header .block-menu li a:hover,
-.region-header .block-menu li a:focus,
-.region-header .block-menu li a:active {
+.region-header .block-menu li a:hover, .region-header .block-menu li a:focus, .region-header .block-menu li a:active {
   text-decoration: none;
   background: rgba(255, 255, 255, 0.15);
 }
@@ -125,8 +119,7 @@
   margin: 0;
   padding: 0;
 }
-.region-header #block-user-login div.item-list,
-.region-header #block-user-login div.description {
+.region-header #block-user-login div.item-list, .region-header #block-user-login div.description {
   margin: 0;
   font-size: 0.916em;
 }
@@ -166,8 +159,7 @@
   background: #eee;
   background: rgba(255, 255, 255, 0.7);
 }
-.region-header #block-user-login input.form-submit:hover,
-.region-header #block-user-login input.form-submit:focus {
+.region-header #block-user-login input.form-submit:hover, .region-header #block-user-login input.form-submit:focus {
   background: #fff;
   background: rgba(255, 255, 255, 0.9);
 }
@@ -184,7 +176,6 @@
 [dir="rtl"] .region-header .search-block-form {
   float: left;
 }
-
 /* Language switcher block in header region. */
 .region-header .block-locale ul li {
   display: inline;
@@ -193,11 +184,7 @@
 [role*=banner] a {
   border-bottom: none;
 }
-
-[dir="rtl"] .branding,
-[dir="rtl"] .site-logo,
-[dir="rtl"] .site-branding-text,
-[dir="rtl"] .region-header #block-user-login .form-item,
-[dir="rtl"] .region-header #block-user-login .item-list li {
+[dir="rtl"] .branding, [dir="rtl"] .site-logo, [dir="rtl"] .site-branding-text, [dir="rtl"] .region-header #block-user-login .form-item, [dir="rtl"] .region-header #block-user-login .item-list li {
   float: right;
 }
+

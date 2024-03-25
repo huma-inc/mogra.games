@@ -1,0 +1,54 @@
+[data-history-node-id="4"],
+[data-history-node-id="6"] {
+  & .node__content {
+    & h2 {
+      &::before {
+        content: none;
+      }
+    }
+    & .text-formatted ul,
+    & .text-formatted ol {
+      line-height: 1.334;
+      list-style-type: none;
+      margin: 20px 0;
+      padding: 0 0 0 2em;
+      & li {
+        &::before {
+          float: left;
+          line-height: 1.334;
+          margin: 0 .5em 0 -2em;
+          width: 1.5em;
+          text-align: right;
+        }
+        & + li {
+          margin-top: 5px;
+        }
+      }
+      & ul, & ol {
+        margin: 5px 0 0 0;
+      }
+    }
+
+    & .text-formatted ul {
+      & > li::before {
+        content: "\e900";
+      }
+      & ul > li::before {
+        content: "\e901";
+      }
+    }
+
+    & .text-formatted ol {
+      counter-reset: item;
+      & > li::before {
+        color: #181818;
+        counter-increment: item;
+        content: '.'counters(item, ".");
+        direction: rtl;
+        font-family: "M PLUS 1p", sans-serif;
+        font-style: oblique;
+        white-space: nowrap;
+      }
+    }
+  }
+}

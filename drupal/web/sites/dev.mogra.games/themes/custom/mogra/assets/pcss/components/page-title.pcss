@@ -3,7 +3,78 @@
  * Visual styles for Mogra's page-title component.
  */
 
+.block-page-title-block .content {
+  margin-top: 0;
+}
 .page-title {
-  font-size: 2em;
-  line-height: 1em;
+  font-size: 1.57143em;
+  font-weight: bold;
+  font-style: italic;
+  line-height: 1.25;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.product-header {
+  border-bottom: solid 1px #ede7de;
+  display: flex;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: solid 1px #d9d0bf;
+  & .l-left {
+    width: 30%;
+    max-width: 192px;
+    flex-basis: 30%;
+    & .product-header__artwork img {
+      border-radius: 22.5%;
+    }
+  }
+  & .l-right {
+    flex: 1;
+    margin-left: 15px;
+    & header {
+      & h2 {
+        font-size: 1.143em;
+        font-weight: normal;
+        line-height: 1.5;
+        margin: 0;
+        & .field--type-entity-reference {
+          margin: 0;
+        }
+      }
+      & .inline-list {
+        font-size: .7143em;
+        line-height: 1.5;
+        list-style: none;
+        padding: 0;
+        margin-top: 3px;
+        &.inline-list--genre {
+          margin-top: 10px;
+        }
+        &.inline-list--paid-app {
+          color: #7d7f82;
+        }
+      }
+    }
+  }
+}
+
+@media all and (min-width: 560px) and (max-width: 850px), all and (min-width: 1100px) {
+  .page-title {
+    font-size: 2.286em;
+  }
+  .product-header {
+    & .l-right {
+      margin-left: 25px;
+      & header {
+        margin-top: 7px;
+        & h2 {
+          font-size: 1.43em;
+        }
+        & .inline-list {
+          font-size: .86em;
+        }
+      }
+    }
+  }
 }

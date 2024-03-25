@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Using ES6 and PostCSS for Drupal Site Development.",
   "main": "index.js",
-  "repository": "https://github.com/huma-inc/mogra.games.git",
-  "author": "Huma Inc. <info@huma-inc.com>",
+  "repository": "https://github.com/huma-inc/web-mogra.com.git",
+  "author": "Huma Inc. <info@web-mogra.com>",
   "license": "MIT",
   "private": true,
   "devDependencies": {
@@ -34,5 +34,9 @@
   "scripts": {
     "build": "webpack --mode=production",
     "watch": "webpack --mode=development --watch"
+  },
+  "dependencies": {
+    "swiper": "^7.3.0",
+    "tocbot": "^4.12.2"
   }
 }

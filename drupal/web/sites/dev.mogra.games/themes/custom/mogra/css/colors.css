@@ -4,54 +4,71 @@ body {
   color: #3b3b3b;
   background: #292929;
 }
-#page,
-#main-wrapper,
-.region-primary-menu .menu-item a.is-active,
-.region-primary-menu .menu-item--active-trail a {
+
+#page {
   background: #fff;
 }
+
+#main-wrapper {
+  background-image: url(../images/soil.png?tier1);
+  background-image: url(../images/soil.webp?tier1);
+  background-repeat: repeat;
+  background-size: 144px;
+  padding-top: 40px;
+  position: relative
+}
+
+#main-wrapper::before {
+    content: "";
+    background-image: url(../images/prairie.png?tier1);
+    background-image: url(../images/prairie.webp?tier1);
+    background-repeat: repeat-x;
+    background-size: 144px auto;
+    height: 48px;
+    position: absolute;
+    top: -2px; right: 0; left: 0;
+  }
+
+@media all and (min-width: 851px) {
+  #main-wrapper {
+    background-size: 288px;
+    padding-top: 80px
+  }
+    #main-wrapper::before {
+      background-size: 288px auto;
+      height: 96px;
+    }
+}
+
 .tabs ul.primary li a.is-active {
   background-color: #fff;
 }
+
 .tabs ul.primary li.is-active a {
   border-bottom-color: #fff;
   background-color: #fff;
 }
+
 #header {
   background-color: #1d84c3;
-  background-image: -webkit-linear-gradient(top, #055a8e 0%, #1d84c3 100%);
   background-image: linear-gradient(to bottom, #055a8e 0%, #1d84c3 100%);
 }
-a,
-.link {
-  color: #0071b3;
+
+a, .link {
+  color: #3370cc;
 }
-a:hover,
-a:focus,
-.link:hover,
-.link:focus {
-  color: #018fe2;
-}
-a:active,
-.link:active {
-  color: #23aeff;
-}
+
 .sidebar .block {
   border-color: #f9f9f9;
   background-color: #f6f6f2;
+  background: none;
 }
+
 .site-footer {
   background: #292929;
 }
-.region-header,
-.region-header a,
-.region-header li a.is-active,
-.region-header .site-branding__text,
-.region-header .site-branding,
-.region-header .site-branding__text a,
-.region-header .site-branding a,
-.region-secondary-menu .menu-item a,
-.region-secondary-menu .menu-item a.is-active {
+
+.region-header, .region-header a, .region-header li a.is-active, .region-header .site-branding__text, .region-header .site-branding, .region-header .site-branding__text a, .region-header .site-branding a, .region-secondary-menu .menu-item a, .region-secondary-menu .menu-item a.is-active {
   color: #fffeff;
 }
 
@@ -61,10 +78,13 @@ a:active,
   margin-right: 20px;
   margin-left: 0;
 }
+
 [dir="rtl"] .color-form .form-item label {
   float: right;
 }
+
 [dir="rtl"] .color-form .color-palette .lock {
   right: -20px;
   left: 0;
 }
+

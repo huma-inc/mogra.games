@@ -346,3 +346,68 @@ input.form-submit:focus {
     text-align: center;
   }
 }
+
+.menu--main .views-exposed-form {
+  display: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  & h2 { display: none; }
+  & .form--inline {
+    background-color: #FFF;
+    border-radius: 16px;
+    box-sizing: border-box;
+    display: flex;
+    width: 304px;
+    margin: 0 auto;
+    padding: 4px 0 0 16px;
+    & .form-item,
+    & .form-actions {
+      float: none;
+      margin: 0;
+      padding: 0;
+    }
+    & .form-actions {
+      margin-top: -4px;
+    }
+    & input.form-text {
+      border: none;
+      font-size: 16px;
+      line-height: 28px;
+      width: 15em;
+      height: 28px;
+      margin: 0;
+      padding: 0 0 4px;
+      outline: none;
+    }
+    & .button {
+      background: url(../../../../../../misc/icons/505050/loupe.svg) no-repeat center;
+      border: none;
+      border-radius: 0;
+      cursor: pointer;
+      width: 48px;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      text-indent: -200%;
+      &#edit-submit-search-article {
+        margin-right: 0;
+      }
+    }
+  }
+  @media all and (min-width: 461px) {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 25px;
+  }
+  @media all and (min-width: 901px) {
+    margin: 0;
+    position: absolute;
+    right: 20px;
+  }
+}
+
+.menu-toggle-target-show:target ~ .views-exposed-form {
+  display: block;
+}
+

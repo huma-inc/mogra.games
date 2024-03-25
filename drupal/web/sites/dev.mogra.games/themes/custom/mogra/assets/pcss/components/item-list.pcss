@@ -27,3 +27,22 @@
 [dir="rtl"] .item-list .item-list__comma-list li {
   padding: 0;
 }
+
+.region-sidebar-first .item-list ul li {
+  font-size: .86em;
+  line-height: 1.667;
+  padding: 5px 0 0 0; /* LTR */
+  &:first-child {
+    padding-top: 0;
+  }
+  & a {
+    color: inherit;
+  }
+  & .views-field-status {
+    color: #797d86;
+  }
+}
+
+.site-footer__top .item-list ul li {
+  padding: 2px 5px 0 0; /* LTR */
+}

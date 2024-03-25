@@ -8,22 +8,46 @@
   padding: 0; /* LTR */
   list-style: none;
 }
+
 [dir="rtl"] .item-list ul {
   padding: 0;
 }
+
 .item-list ul li {
   /* This is needed to reset styles in item-list.theme.css */
   margin: 0;
   padding: 0.2em 0.5em 0 0; /* LTR */
 }
+
 [dir="rtl"] .item-list ul li {
   /* This is needed to reset [dir="rtl"] styles in item-list.theme.css */
   margin: 0;
   padding: 0.2em 0 0 0.5em;
 }
-.item-list .item-list__comma-list,
-.item-list .item-list__comma-list li,
-[dir="rtl"] .item-list .item-list__comma-list,
-[dir="rtl"] .item-list .item-list__comma-list li {
+
+.item-list .item-list__comma-list, .item-list .item-list__comma-list li, [dir="rtl"] .item-list .item-list__comma-list, [dir="rtl"] .item-list .item-list__comma-list li {
   padding: 0;
 }
+
+.region-sidebar-first .item-list ul li {
+  font-size: .86em;
+  line-height: 1.667;
+  padding: 5px 0 0 0 /* LTR */
+}
+
+.region-sidebar-first .item-list ul li:first-child {
+    padding-top: 0;
+  }
+
+.region-sidebar-first .item-list ul li a {
+    color: inherit;
+  }
+
+.region-sidebar-first .item-list ul li .views-field-status {
+    color: #797d86;
+  }
+
+.site-footer__top .item-list ul li {
+  padding: 2px 5px 0 0; /* LTR */
+}
+

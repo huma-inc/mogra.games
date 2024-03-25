@@ -34,6 +34,7 @@
     'block',
     'block-' ~ configuration.provider|clean_class,
     'block-' ~ plugin_id|clean_class,
+    plugin_id == 'views_block:featured_apps-block_1' ? 'featured-apps-block',
   ]
 %}
 <div{{ attributes.addClass(classes) }}>

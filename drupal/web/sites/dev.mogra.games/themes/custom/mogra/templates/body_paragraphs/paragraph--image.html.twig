@@ -1,0 +1,18 @@
+{%
+  set caption_classes = [
+  'caption',
+  'caption-img',
+]
+%}
+
+{% if body_paragraphs.image.caption %}
+  <figure{{ attributes.setAttribute('role', 'group').addClass(caption_classes, 'align-center') }}>
+      {{ content }}
+    <figcaption>{{ body_paragraphs.image.caption }}</figcaption>
+  </figure>
+{% else %}
+  {{ content }}
+{% endif %}
+
+
+

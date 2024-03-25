@@ -1,0 +1,45 @@
+
+{%
+  set classes = [
+    'field',
+    'field--name-' ~ field_name|clean_class,
+    'field--type-' ~ field_type|clean_class,
+    'field--label-' ~ label_display,
+    'field__items',
+  ]
+%}
+<div class="swiper-container">
+  <div{{ attributes.addClass(classes, 'swiper-wrapper') }}>
+    {% for item in caroucel %}
+
+      {% if loop.index0 % 3 == 0 %}
+      <div class="swiper-slide">
+      {% endif %}
+
+        <a href="{{ item.alias }}" class="field__item item__container">
+          {{ item.thumbnail }}
+          <div class="item__content">
+            {% set title = item.title|render|striptags %}
+            <p class="title">{{ title|length > 30 ? title|slice(0, 30) ~ '…' : title }}</p>
+            <div class="item__meta">
+              <span class="category">{{ item.category }}</span>
+              <span class="game-title">{{ item.game_title }}</span>
+            </div>
+          </div>
+        </a>
+
+
+      {% if loop.index0 % 3 == 2 %}
+      </div>
+      {% endif %}
+
+    {% endfor %}
+  </div>
+
+  <!-- Add Pagination -->
+  <div class="swiper-pagination"></div>
+
+  <!-- Add Arrows -->
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</div>

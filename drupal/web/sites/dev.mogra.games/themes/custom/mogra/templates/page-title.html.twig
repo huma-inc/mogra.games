@@ -21,6 +21,46 @@
 
 {{ title_prefix }}
 {% if title %}
-  <h1{{ title_attributes.addClass(classes) }}>{{ title }}</h1>
+  {% if type == 'introduce' %}
+    {% if only_platform %}
+      <div class="messages__wrapper">
+        <div role="contentinfo" aria-label="注意" class="messages messages--warning">
+          このアプリは現在、{{ only_platform }}デバイスのみ提供されています。
+        </div>
+      </div>
+    {% endif %}
+    <div class="product-header">
+      <div class="l-left">
+        <div class="product-header__artwork">
+          {{ drupal_field('field_artwork', 'node', nid) }}
+        </div>
+      </div>
+      <div class="l-right">
+        <header>
+          <h1{{ title_attributes.addClass('page-title') }}>{{ title }}</h1>
+          <h2>{{ drupal_field('field_developer', 'node', nid) }}</h2>
+          <ul class="inline-list inline-list--genre">
+            <li class="inline-list__item">
+            {% set field_genre = drupal_field('field_genre', 'node', nid) %}
+            {% for item in field_genre['#items'] %}
+              {% set path_genre = path('entity.taxonomy_term.canonical', {'taxonomy_term': item.entity.tid.value }) %}
+              <a href="{{ path_genre }}">{{ item.entity.name.value }}</a>{% if not loop.last %}, {% endif %}
+            {% endfor %}
+            </li>
+          </ul>
+          <ul class="inline-list inline-list--paid-app">
+            <li class="inline-list__item">
+              {% set field_paid_app = drupal_field('field_paid_app', 'node', nid) %}
+              {% if field_paid_app['#items'].0.value == '0' %}無料{% else %}有料{% endif %}
+              {% set field_annotation_payment = drupal_field('field_annotation_payment', 'node', nid) %}
+              {% if field_annotation_payment['#items'].value %}:&nbsp;{{ field_annotation_payment['#items'].value }}{% endif %}
+            </li>
+          </ul>
+        </header>
+      </div>
+    </div>
+  {% else %}
+    <h1{{ title_attributes.addClass('page-title') }}>{{ title }}</h1>
+  {% endif %}
 {% endif %}
 {{ title_suffix }}

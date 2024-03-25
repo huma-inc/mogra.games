@@ -4,15 +4,34 @@
  */
 
 .main-content .section {
-  padding: 0 15px;
+  padding: 0 5px;
 }
-.main-content h2 {
-  margin-bottom: 2px;
-  font-size: 1.429em;
-  line-height: 1.4;
+
+body:not(.path-frontpage) .main-content .section .region-content,
+.path-frontpage .views-card {
+  border-style: solid;
+  border-image: url(../../images/bg_container.png) 40 fill stretch;
+  border-width: 20px;
+}
+
+@media all and (min-width: 560px) {
+  .main-content .section {
+    padding: 0 20px;
+  }
+  body:not(.path-frontpage) .main-content .section .region-content,
+  .path-frontpage .views-card {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
 }
 
 @media all and (min-width: 851px) {
+  .layout-one-sidebar .main-content .section {
+    padding-left: 0;
+  }
+  .layout-two-sidebars .main-content .section {
+    padding: 0;
+  }
   .main-content {
     position: relative;
     float: left; /* LTR */
@@ -21,30 +40,45 @@
     float: right;
   }
   .layout-two-sidebars .main-content {
-    width: 50%;
-    margin-right: 25%;
-    margin-left: 25%;
+    width: calc(100% - 576px);
+    margin-right: 376px;
+    margin-left: 200px;
   }
   .layout-one-sidebar .main-content {
-    width: 75%;
+    width: calc(100% - 200px);
   }
   .layout-no-sidebars .main-content {
     width: 100%;
   }
   .layout-sidebar-first .main-content {
     margin-right: 0; /* LTR */
-    margin-left: 25%; /* LTR */
+    margin-left: 200px; /* LTR */
   }
   [dir="rtl"] .layout-sidebar-first .main-content {
-    margin-right: 25%;
+    margin-right: 200px;
     margin-left: 0;
   }
   .layout-sidebar-second .main-content {
-    margin-right: 25%; /* LTR */
+    margin-right: 376px; /* LTR */
     margin-left: 0; /* LTR */
   }
   [dir="rtl"] .layout-sidebar-second .main-content {
     margin-right: 0;
-    margin-left: 25%;
+    margin-left: 376px;
   }
+
+  /* Hidden sidebar second
+  .layout-two-sidebars:not(.path-node):not(.path-search) .main-content {
+    width: calc(100% - 200px);
+    margin-right: 0; /* LTR
+    margin-left: 200px; /* LTR
+  }
+  .layout-two-sidebars:not(.path-node):not(.path-search) .main-content .section {
+    padding-right: 20px;
+  }
+  [dir="rtl"] .layout-two-sidebars:not(.path-node):not(.path-search) .main-content {
+    margin-right: 200px;
+    margin-left: 0;
+  } */
+
 }

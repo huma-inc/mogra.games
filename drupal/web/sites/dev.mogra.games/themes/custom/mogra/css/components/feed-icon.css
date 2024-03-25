@@ -9,7 +9,7 @@
   border-bottom: 1px solid transparent;
 }
 
-.feed-icon:focus,
-.feed-icon:hover {
+.feed-icon:focus, .feed-icon:hover {
   border-color: #018fe2;
 }
+
