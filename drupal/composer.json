@@ -104,7 +104,13 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true,
+            "composer/installers": true,
+            "oomphinc/composer-installers-extender": true
+        }
     },
     "extra": {
         "drupal-scaffold": {
